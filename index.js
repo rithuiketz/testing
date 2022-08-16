@@ -62,7 +62,7 @@ const keys = {
 }
 
 
-function animate(){
+/*function animate(){
   requestAnimationFrame(animate)
   c.fillStyle = "black"
   c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
@@ -80,6 +80,27 @@ function animate(){
   
   //Add in HTML buttons here
   
+  
+  else{
+    player.velocity.x = 0
+  }
+}*/
+
+function animate(){
+  requestAnimationFrame(animate)
+  c.fillStyle = "black"
+  c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
+  player.update()
+  
+  if (keys.a.pressed && player.position.x >= 0){
+    player.velocity.x = -5
+    player.rotation = .15//change image here
+  }
+  
+  else if (keys.d.pressed && player.position.x+player.width <=canvas.width){
+    player.velocity.x = 5
+    player.rotation = .15
+  }
   
   else{
     player.velocity.x = 0
@@ -126,9 +147,8 @@ addEventListener('keyup', ({key}) => {
 
 
 window.onload = function () {
-  document.getElementById("left").addEventListener("click", function(){ console.log("We're going left")})
-  
-  
+  document.getElementById("left").addEventListener("click", function(){keys.a.pressed = true})
+  document.getElementById("right").addEventListener("click", function(){keys.d.pressed = true})
 }
 
   
