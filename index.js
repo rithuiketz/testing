@@ -147,13 +147,14 @@ addEventListener('keyup', ({key}) => {
 
 
 window.onload = function () {
-  document.getElementById("left").addEventListener("click", function(){keys.a.pressed = true})
-  document.getElementById("right").addEventListener("click", function(){keys.d.pressed = true})
+  document.getElementById("left").addEventListener("click", function(){
+    keys.a.pressed = true 
+    keys.d.pressed = false})
+  document.getElementById("right").addEventListener("click", function(){
+    keys.a.pressed = false
+    keys.d.pressed = true})//This is too hacky... How can you stop it when neither pressed?
+  
 }
 
   
-
-function left(){
-  player.velocity.x = -5
-}
  
