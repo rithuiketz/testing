@@ -8,10 +8,7 @@ canvas.height = innerHeight
 
 class Player {
   constructor(){
-    this.position = {
-      x: 200,
-      y: 200
-    }
+    
     
     this.velocity = {
       x: 0,
@@ -21,9 +18,15 @@ class Player {
     const image = new Image()
     image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/NachoGif.png?v=1660648241228'//Transport this to ./imgfolder eventually
     image.onload = () => {
+      
+      const scale= 0.4
       this.image = image
-      this.width = image.width
-      this.height = image.height
+      this.width = image.width *scale
+      this.height = image.height * scale
+      this.position = {
+        x: canvas.width/2 - this.width/2,
+        y: canvas.height - this.height - 50
+      }
     }
     
     
