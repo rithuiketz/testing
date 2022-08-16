@@ -50,13 +50,29 @@ class Player {
 }
 
 const player = new Player()
-player.draw()
+const keys = {
+  a: {pressed: false},
+  d: {pressed: false},
+  space: {pressed: false}
+}
+
 
 function animate(){
   requestAnimationFrame(animate)
   c.fillStyle = "black"
   c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
-  player.draw()
+  player.update()
+  
+  if (keys.a.pressed){
+    player.velocity.x = -5
+  }
+  
+  if (keys.d.pressed){
+    player.velocity.x = 5
+  }
+  else{
+    player.velocity.x = 0
+  }
 }
 
 animate()
@@ -65,9 +81,26 @@ addEventListener('keydown', ({key}) => {
   switch(key){
     case "a":
       console.log("left")
+      keys.a.pressed = true
       break
     case "d":
       console.log("right")
+      keys.d.pressed = true
+      break
+    case "space":
+      console.log("space")
+      break
+  }
+})
+addEventListener('keyup', ({key}) => {
+  switch(key){
+    case "a":
+      console.log("left")
+      keys.a.pressed = false
+      break
+    case "d":
+      console.log("right")
+      keys.d.pressed = false
       break
     case "space":
       console.log("space")
