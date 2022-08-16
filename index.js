@@ -115,22 +115,11 @@ addEventListener('keyup', ({key}) => {
   }
 })
 
-const btn = document.createElement("button")
-btn.innerText = "Left"
 
 
-btn.addEventListener('click', ({button}) => {
-  switch(button){
-    case "a":
-      console.log("left")
-      keys.a.pressed = false
-      break
-    case "d":
-      console.log("right")
-      keys.d.pressed = false
-      break
-    case "space":
-      console.log("space")
-      break
-  }
-})
+  
+
+function left(){
+  player.velocity.x = -5
+}
+ 
