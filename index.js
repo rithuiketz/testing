@@ -32,6 +32,8 @@ class Player {
   draw(){
     //c.fillStyle = "red"
     //c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    
+    
     c.drawImage(
       this.image, 
       this.position.x, 
@@ -39,7 +41,10 @@ class Player {
       this.width, 
       this.height)
     
+    
   }
+  
+  
   
   update(){
     if (this.image){
@@ -63,12 +68,14 @@ function animate(){
   c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
   player.update()
   
-  if (keys.a.pressed){
+  if (keys.a.pressed && player.position.x >= 0){
     player.velocity.x = -5
+    player.rotation = .15//change image here
   }
   
-  if (keys.d.pressed){
+  else if (keys.d.pressed && player.position.x+player.width <=canvas.width){
     player.velocity.x = 5
+    player.rotation = .15
   }
   else{
     player.velocity.x = 0
