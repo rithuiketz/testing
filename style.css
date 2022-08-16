@@ -1,11 +1,13 @@
-button {
-    width: 200px;
-    height: 50px;   
-    font-size: 20px;
-    position: absolute;
-    z-index: 5;
+.canvas-container{
+  position: relative;
+  width: 500px;
+  height: 500px;
 }
-.left{
-    height:200px;
-    width:200px;
+#canvas {
+  position: absolute;
+}
+#left {
+  position:absolute;
+  left:30%;
+  top:40%
 }
