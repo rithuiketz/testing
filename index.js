@@ -77,6 +77,10 @@ function animate(){
     player.velocity.x = 5
     player.rotation = .15
   }
+  
+  //Add in HTML buttons here
+  
+  
   else{
     player.velocity.x = 0
   }
