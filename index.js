@@ -20,17 +20,26 @@ class Player {
     
     const image = new Image()
     image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/NachoGif.png?v=1660648241228'//Transport this to ./imgfolder eventually
+    image.onload = () => {
+      this.image = image
+      this.width = image.width
+      this.height = image.height
+    }
     
     
-    this.image = image
-    this.width = 100
-    this.height = 100
 
   }
   draw(){
     //c.fillStyle = "red"
     //c.fillRect(this.position.x, this.position.y, this.width, this.height)
-    c.drawImage(this.image, this.position.x, this.position.y)
+    if (this.image)
+      c.drawImage(
+        this.image, 
+        this.position.x, 
+        this.position.y, 
+        this.width, 
+        this.height)
+    
   }
 }
 
@@ -39,6 +48,8 @@ player.draw()
 
 function animate(){
   requestAnimationFrame(animate)
+  c.fillStyle = "black"
+  c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
   player.draw()
 }
 
