@@ -125,6 +125,11 @@ addEventListener('keyup', ({key}) => {
 
 
 
+function myFunction() {
+  console.log("whoopppeeeee")
+}
+
+document.getElementById("left").addEventListener("click", myFunction);
   
 
 function left(){
