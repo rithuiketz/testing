@@ -86,6 +86,10 @@ function animate(){
   }
 }
 
+function LeftTest(){
+  console.log("Success")
+}
+
 animate()
 
 addEventListener('keydown', ({key}) => {
