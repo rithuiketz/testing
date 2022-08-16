@@ -125,14 +125,12 @@ addEventListener('keyup', ({key}) => {
 
 
 
-//function myFunction() {
-//  console.log("whoopppeeeee")
-//}
+window.onload = function () {
+  document.getElementById("left").addEventListener("click", function(){ console.log("We're going left")})
+  
+  
+}
 
-//document.getElementById("left").addEventListener("click", myFunction);
-
-var leftButton = document.getElementByID("left");
-leftButton.getElementById("left").addEventListener("click", function(){ console.log("whoopppeeeee")})
   
 
 function left(){
