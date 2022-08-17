@@ -15,7 +15,7 @@ class Player {
     }
     
     const image = new Image()
-    image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/NachoGif.png?v=1660648241228'//Transport this to ./imgfolder eventually
+    image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nahco_Closecut.png?v=1660739959106'//Transport this to ./imgfolder eventually
     image.onload = () => {
       const scale= 0.4
       this.image = image
