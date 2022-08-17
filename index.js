@@ -92,12 +92,12 @@ function animate(){
   c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
   player.update()
   
-  if (keys.a.pressed && player.position.x >= 0){
+  if (keys.a.pressed && player.position.x >= canvas.width*0.14){
     player.velocity.x = -5
     player.rotation = .15//change image here
   }
   
-  else if (keys.d.pressed && player.position.x+player.width <=canvas.width){
+  else if (keys.d.pressed && player.position.x+player.width <=canvas.width*0.86){
     player.velocity.x = 5
     player.rotation = .15
   }
