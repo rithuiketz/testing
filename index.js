@@ -32,15 +32,13 @@ class Player {
   draw(){
     //c.fillStyle = "red"
     //c.fillRect(this.position.x, this.position.y, this.width, this.height)
-    
-    
+ 
     c.drawImage(
       this.image, 
       this.position.x, 
       this.position.y, 
       this.width, 
       this.height)
-    
     
   }
   
@@ -52,6 +50,20 @@ class Player {
       this.position.x += this.velocity.x
     }
   }
+}
+
+class Projectile{
+  constructor({position, velocity}){
+    this.position = position
+    this.velocity = velocity
+    
+    this.redius = 3
+  }
+  draw(){
+    c.beginPath()
+    c.arc() 
+  }
+   
 }
 
 const player = new Player()
