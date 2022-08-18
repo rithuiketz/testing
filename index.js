@@ -122,9 +122,9 @@ function detectCollision(Projectile, Player, index) {
     projectiles.splice(projectiles[index], 1);
     score = score + 1;
     console.log("score = " + score);
-    document.getElementById("score").value = "score = " + score;
+    document.getElementById("score").innerHTML = "SCORE " + score;
   }
-  //decrease score
+  //loss point
   if (Projectile.position.y > canvas.height) {
     projectiles.splice(projectiles[index], 1);
     missed = missed + 1;
