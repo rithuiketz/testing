@@ -92,11 +92,9 @@ class Projectile{
    
 }
 
-function spawnProjectile(){
-  const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
-}
 
 const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+
 
 const player = new Player()
 const keys = {
@@ -106,6 +104,9 @@ const keys = {
 }
 
 
+function spawnProjectile(){
+  const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+}
 
 
 function animate(){
@@ -133,18 +134,11 @@ function animate(){
   }
 }
 
+setInterval(function () {element.innerHTML += "Hello"}, 1000)
+
 animate()
 
-function Update () {
-  spawnTimer += Date.deltaTime
-  
-  if(spawnTimer >= 1.0)
-      {
-        spawnProjectile();
-        spawnTimer = 0.0;
-        console.Log("here")
-      }
-}
+
 
 
 addEventListener('keydown', ({key}) => {
