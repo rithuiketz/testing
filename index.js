@@ -88,9 +88,7 @@ class Projectile{
       this.position.x += this.velocity.x
       this.position.y += this.velocity.y
      }
-      //Detect Collision here... Maybe
-
-      if (this.position.y < canvas.height/2){console.log ("halfway")}
+      
   }
    
 }
@@ -112,7 +110,13 @@ function spawnProjectile(){
   projectiles.push (new Projectile({position: {x:Math.floor(Math.random() *(canvas.width*0.8 - canvas.width*0.2) + canvas.width*0.2 ), y:0}, velocity: {x:0, y:2}}))
 }
 
+function detectCollision(projectilePositionY, playerPositionY){
+      //if (this.position.y > canvas.height/2){console.log ("halfway")}
+      //const playerCollider = document.getElementsByClassName("Player")
+      if (this.position.y > Player.position.y){console.log ("Mustn't crush, made it!!")}
+}
 
+      
 
 
 function animate(){
@@ -123,7 +127,9 @@ function animate(){
   
   projectiles.forEach(Projectile => {
     Projectile.update()
-    //Detectcollision
+  
+  //Detectcollision
+  detectCollision(Projectile, player)
     
   })
   
