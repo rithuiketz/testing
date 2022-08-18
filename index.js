@@ -57,8 +57,6 @@ class Projectile{
       this.position = position
       this.velocity = velocity
 
-      this.radius = 3
-
       const image = new Image()
       image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nahco_Closecut.png?v=1660739959106'//Transport this to ./imgfolder eventually
       image.onload = () => {
@@ -67,21 +65,21 @@ class Projectile{
         this.width = image.width *scale
         this.height = image.height * scale
         this.position = {
-          x: canvas.width - this.width/2,
-          y: canvas.height- this.height - 50
+          x: position.x,
+          y: position.y
       }
     }
   }
   
-  draw(){
+  //draw(){
     
-    c.drawImage(
-    this.image, 
-      this.position.x, 
-      this.position.y, 
-      this.width, 
-      this.height) 
-  }
+    //c.drawImage(
+    //  this.image, 
+    //  this.position.x, 
+    //  this.position.y, 
+     // this.width, 
+    //  this.height) 
+ // }
   
   update(){
     this.draw()
