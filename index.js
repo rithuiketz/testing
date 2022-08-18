@@ -60,7 +60,7 @@ class Projectile{
       const splat = new Image()
       splat.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/splat.png?v=1660812897838'//Transport this to ./imgfolder eventually
       splat.onload = () => {
-        const scale= 0.4
+        const scale= 0.2
         this.image = splat
         this.width = splat.width *scale
         this.height = splat.height * scale
@@ -93,7 +93,7 @@ class Projectile{
 }
 
 
-const projectiles = [new Projectile({position: {x:300, y:300}, velocity: {x:0, y:2}})]
+const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
 
 const player = new Player()
 const keys = {
