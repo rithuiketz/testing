@@ -111,10 +111,11 @@ function spawnProjectile(){
 }
 
 function detectCollision(Projectile, Player, index){
+  console.log(index)
   
       //if (Projectile.position.y > Player.position.y && Player.position.x-Player.width/2 < Projectile.position.x < Player.position.x+Player.width/2){
-      if (Player.position.x-Player.width/2 < Projectile.position.x < Player.position.x+Player.width/2){
-        projectiles.pop(index)
+      if (Player.position.x-Player.width/2 < Projectile.position.x && Projectile.position.x < Player.position.x+Player.width/2 && Projectile.position.y > Player.position.y){
+        projectiles.pop(projectiles[index])
         console.log ("Mustn't crush, made it!!")
       }
   else{}
