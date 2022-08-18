@@ -110,10 +110,12 @@ function spawnProjectile(){
   projectiles.push (new Projectile({position: {x:Math.floor(Math.random() *(canvas.width*0.8 - canvas.width*0.2) + canvas.width*0.2 ), y:0}, velocity: {x:0, y:2}}))
 }
 
-function detectCollision(projectilePositionY, playerPositionY){
-      //if (this.position.y > canvas.height/2){console.log ("halfway")}
-      //const playerCollider = document.getElementsByClassName("Player")
-      if (this.position.y > Player.position.y){console.log ("Mustn't crush, made it!!")}
+function detectCollision(Projectile, Player, index){
+  
+      if (Projectile.position.y > Player.position.y && Projectile.position.x > Player.position.x-Player.width/2 && Projectile.position.x < Player.position.x+Player.width/2){
+        projectiles.pop(index)
+        console.log ("Mustn't crush, made it!!")
+      }
 }
 
       
@@ -125,11 +127,11 @@ function animate(){
   c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
   player.update()
   
-  projectiles.forEach(Projectile => {
+  projectiles.forEach((Projectile, index) => {
     Projectile.update()
   
-  //Detectcollision
-  detectCollision(Projectile, player)
+    //Detectcollision
+    detectCollision(Projectile, player, index)
     
   })
   
