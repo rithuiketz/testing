@@ -4,7 +4,7 @@ const c = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-
+var spawnTimer = 0.0
 
 class Player {
   constructor(){
@@ -92,6 +92,9 @@ class Projectile{
    
 }
 
+function spawnProjectile(){
+  const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+}
 
 const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
 
@@ -130,10 +133,16 @@ function animate(){
   }
 }
 
-
-
 animate()
 
+function Update () {
+spawnTimer += Time.deltaTime
+if(spawnTimer >= 1.0)
+    {
+      spawnProjectile();
+      spawnTimer = 0.0;
+    }
+}
 
 
 addEventListener('keydown', ({key}) => {
