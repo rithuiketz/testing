@@ -105,7 +105,9 @@ const keys = {
 
 
 function spawnProjectile(){
-  const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+  console.log("hi")
+  //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+  projectiles.push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
 }
 
 
@@ -134,7 +136,7 @@ function animate(){
   }
 }
 
-setInterval(function () {element.innerHTML += "Hello"}, 1000)
+setInterval(spawnProjectile, 1000)
 
 animate()
 
