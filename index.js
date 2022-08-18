@@ -5,6 +5,8 @@ canvas.width = innerWidth
 canvas.height = innerHeight
 
 var spawnTimer = 0.0
+var score = 0
+var missed = 0
 
 class Player {
   constructor(){
@@ -111,13 +113,19 @@ function spawnProjectile(){
 }
 
 function detectCollision(Projectile, Player, index){
-  console.log(index)
   
       //if (Projectile.position.y > Player.position.y && Player.position.x-Player.width/2 < Projectile.position.x < Player.position.x+Player.width/2){
       if (Player.position.x-Player.width/2 < Projectile.position.x && Projectile.position.x < Player.position.x+Player.width/2 && Projectile.position.y > Player.position.y){
-        projectiles.pop(projectiles[index])
-        console.log ("Mustn't crush, made it!!")
+        projectiles.splice(projectiles[index], 1)
+        score = score+1
+        console.log ("score = " + score)
       }
+  
+    if (Projectile.position.y > canvas.height){
+          projectiles.splice(projectiles[index], 1)
+          missed = missed+1
+          console.log ("Missed = " + missed)
+        }
   else{}
 }
 
@@ -163,30 +171,24 @@ animate()
 addEventListener('keydown', ({key}) => {
   switch(key){
     case "a":
-      console.log("left")
+      //console.log("left")
       keys.a.pressed = true
       break
     case "d":
-      console.log("right")
+      //console.log("right")
       keys.d.pressed = true
-      break
-    case "space":
-      console.log("space")
       break
   }
 })
 addEventListener('keyup', ({key}) => {
   switch(key){
     case "a":
-      console.log("left")
+      //console.log("left")
       keys.a.pressed = false
       break
     case "d":
-      console.log("right")
+      //console.log("right")
       keys.d.pressed = false
-      break
-    case "space":
-      console.log("space")
       break
   }
 })
