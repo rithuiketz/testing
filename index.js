@@ -136,12 +136,14 @@ function animate(){
 animate()
 
 function Update () {
-spawnTimer += Time.deltaTime
-if(spawnTimer >= 1.0)
-    {
-      spawnProjectile();
-      spawnTimer = 0.0;
-    }
+  spawnTimer += Date.deltaTime
+  
+  if(spawnTimer >= 1.0)
+      {
+        spawnProjectile();
+        spawnTimer = 0.0;
+        console.Log("here")
+      }
 }
 
 
