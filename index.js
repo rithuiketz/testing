@@ -88,6 +88,9 @@ class Projectile{
       this.position.x += this.velocity.x
       this.position.y += this.velocity.y
      }
+      //Detect Collision here... Maybe
+
+      if (this.position.y < canvas.height/2){console.log ("halfway")}
   }
    
 }
@@ -110,6 +113,8 @@ function spawnProjectile(){
 }
 
 
+
+
 function animate(){
   requestAnimationFrame(animate)
   c.fillStyle = "black"
@@ -118,6 +123,8 @@ function animate(){
   
   projectiles.forEach(Projectile => {
     Projectile.update()
+    //Detectcollision
+    
   })
   
   if (keys.a.pressed && player.position.x >= canvas.width*0.14){
