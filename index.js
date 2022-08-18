@@ -57,13 +57,13 @@ class Projectile{
       this.position = position
       this.velocity = velocity
 
-      const image = new Image()
-      image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nahco_Closecut.png?v=1660739959106'//Transport this to ./imgfolder eventually
-      image.onload = () => {
+      const splat = new Image()
+      splat.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/splat.png?v=1660812897838'//Transport this to ./imgfolder eventually
+      splat.onload = () => {
         const scale= 0.4
-        this.image = image
-        this.width = image.width *scale
-        this.height = image.height * scale
+        this.image = splat
+        this.width = splat.width *scale
+        this.height = splat.height * scale
         this.position = {
           x: position.x,
           y: position.y
@@ -71,20 +71,23 @@ class Projectile{
     }
   }
   
-  //draw(){
+  draw(){
     
-    //c.drawImage(
-    //  this.image, 
-    //  this.position.x, 
-    //  this.position.y, 
-     // this.width, 
-    //  this.height) 
- // }
+    c.drawImage(
+      this.image, 
+      this.position.x, 
+      this.position.y, 
+      this.width, 
+      this.height
+    ) 
+  }
   
   update(){
-    this.draw()
-    this.position.x += this.velocity.x
-    this.position.y += this.velocity.y
+     if (this.image){
+      this.draw()
+      this.position.x += this.velocity.x
+      this.position.y += this.velocity.y
+     }
   }
    
 }
