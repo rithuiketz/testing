@@ -59,6 +59,21 @@ class Projectile{
     
     this.radius = 3
   }
+  
+  const image = new Image()
+    image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nahco_Closecut.png?v=1660739959106'//Transport this to ./imgfolder eventually
+    image.onload = () => {
+      const scale= 0.4
+      this.image = image
+      this.width = image.width *scale
+      this.height = image.height * scale
+      this.position = {
+        x: canvas.width/2 - this.width/2,
+        y: canvas.height - this.height - 50
+      }
+    }
+    
+    
   draw(){
     c.beginPath()
     c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2) 
