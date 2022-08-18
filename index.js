@@ -54,32 +54,33 @@ class Player {
 
 class Projectile{
   constructor({position, velocity}){
-    this.position = position
-    this.velocity = velocity
-    
-    this.radius = 3
-  }
-  
-  const image = new Image()
-    image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nahco_Closecut.png?v=1660739959106'//Transport this to ./imgfolder eventually
-    image.onload = () => {
-      const scale= 0.4
-      this.image = image
-      this.width = image.width *scale
-      this.height = image.height * scale
-      this.position = {
-        x: canvas.width/2 - this.width/2,
-        y: canvas.height - this.height - 50
+      this.position = position
+      this.velocity = velocity
+
+      this.radius = 3
+
+      const image = new Image()
+      image.src = 'https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nahco_Closecut.png?v=1660739959106'//Transport this to ./imgfolder eventually
+      image.onload = () => {
+        const scale= 0.4
+        this.image = image
+        this.width = image.width *scale
+        this.height = image.height * scale
+        this.position = {
+          x: canvas.width - this.width/2,
+          y: canvas.height- this.height - 50
       }
     }
-    
-    
+  }
+  
   draw(){
-    c.beginPath()
-    c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2) 
-    c.fillStyle = "red"
-    c.fill()
-    c.closePath()
+    
+    c.drawImage(
+    this.image, 
+      this.position.x, 
+      this.position.y, 
+      this.width, 
+      this.height) 
   }
   
   update(){
@@ -101,29 +102,7 @@ const keys = {
 }
 
 
-/*function animate(){
-  requestAnimationFrame(animate)
-  c.fillStyle = "black"
-  c.fillRect(0,0, canvas.width, canvas.height)//Canvas background
-  player.update()
-  
-  if (keys.a.pressed && player.position.x >= 0){
-    player.velocity.x = -5
-    player.rotation = .15//change image here
-  }
-  
-  else if (keys.d.pressed && player.position.x+player.width <=canvas.width){
-    player.velocity.x = 5
-    player.rotation = .15
-  }
-  
-  //Add in HTML buttons here
-  
-  
-  else{
-    player.velocity.x = 0
-  }
-}*/
+
 
 function animate(){
   requestAnimationFrame(animate)
@@ -150,11 +129,11 @@ function animate(){
   }
 }
 
-function LeftTest(){
-  console.log("Success")
-}
+
 
 animate()
+
+
 
 addEventListener('keydown', ({key}) => {
   switch(key){
