@@ -93,7 +93,7 @@ class Projectile{
 }
 
 
-const projectiles = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+const projectiles = []
 
 
 const player = new Player()
@@ -106,7 +106,7 @@ const keys = {
 
 function spawnProjectile(){
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
-  projectiles.push (new Projectile({position: {x:canvas.width/1, y:canvas.height/10}, velocity: {x:0, y:2}}))
+  projectiles.push (new Projectile({position: {x:Math.floor(Math.random() *(canvas.width*0.8 - canvas.width*0.2) + canvas.width*0.2 ), y:0}, velocity: {x:0, y:2}}))
 }
 
 
@@ -135,7 +135,7 @@ function animate(){
   }
 }
 
-setInterval(spawnProjectile, 1000)
+setInterval(spawnProjectile, 3000)
 
 animate()
 
