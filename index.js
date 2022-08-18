@@ -105,9 +105,8 @@ const keys = {
 
 
 function spawnProjectile(){
-  console.log("hi")
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
-  projectiles.push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+  projectiles.push (new Projectile({position: {x:canvas.width/1, y:canvas.height/10}, velocity: {x:0, y:2}}))
 }
 
 
