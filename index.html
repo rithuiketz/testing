@@ -1,54 +1,54 @@
 <head>
-  <title>
-    Eno Nacho Game!
-  </title>
+  <title>Eno Nacho Game!</title>
 </head>
 
 <style>
-  body{
-    margin :0
+  body {
+    margin: 0;
   }
   h1 {
-    -webkit-text-stroke: 2px white; /* width and color */
+    -webkit-text-stroke: 2px black; /* width and color */
 
-    font-family: sans; color: red;
-  }  
+    font-family: sans; color: yellow;
+}
 </style>
-<div >
-  <canvas style="display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;">
-
-
+<div>
+  <canvas
+    style="
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    "
+  >
   </canvas>
-    
 </div>
 
 <script src="./index.js"></script>
 
 <body>
-    <div>
-      <input type="image" src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Left%20Button.png?v=1660739934382" style="height:30%;width:7%; position:absolute;  left:7%;  top:60%;"  id="left"/>
-    </div>
-    <div>
-      <input type="image" src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Right%20Button.png?v=1660739934431" style="height:30%;width:7%; position:absolute;  left:86%;  top:60%;"  id="right"/>
-    </div>
-    <div>
-      <header>
-        <h1 style="-webkit-text-stroke: 2px white; /* width and color */
-
-    font-family: sans; color: red;">Score</h1>
-      </header> 
-      <!--<input type="button" value="score:" style="height:10%;width:10%; position:absolute;  left:10%;  top:10%;"  id="score"/>-->
-        
+  <div>
+    <input
+      type="image"
+      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Left%20Button.png?v=1660739934382"
+      style="height: 30%; width: 7%; position: absolute; left: 7%; top: 60%"
+      id="left"
+    />
   </div>
-  
-  
+  <div>
+    <input
+      type="image"
+      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Right%20Button.png?v=1660739934431"
+      style="height: 30%; width: 7%; position: absolute; left: 86%; top: 60%"
+      id="right"
+    />
+  </div>
+  <div>
+    <h1 id="score">Score </h1>
+    <!--<input type="button" value="score:" style="height:10%;width:10%; position:absolute;  left:10%;  top:10%;"  id="score"/>-->
+  </div>
 </body>
-
-
