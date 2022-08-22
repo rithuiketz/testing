@@ -200,11 +200,11 @@ addEventListener("keyup", ({ key }) => {
 });
 
 window.onload = function () {
-  document.getElementById("left").addEventListener("click", function () {
+  document.getElementById("left").addEventListener('mousedown', function () {
     keys.a.pressed = true;
     keys.d.pressed = false;
   });
-  document.getElementById("right").addEventListener("click", function () {
+  document.getElementById("right").addEventListener('mousedown', function () {
     keys.a.pressed = false;
     keys.d.pressed = true;
   }); //This is too hacky... How can you stop it when neither pressed?
