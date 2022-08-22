@@ -96,6 +96,10 @@ const keys = {
   space: { pressed: false },
 };
 
+
+////Functions////
+
+
 function spawnProjectile() {
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
   projectiles.push(
@@ -163,6 +167,9 @@ function animate() {
 setInterval(spawnProjectile, 3000);
 
 animate();
+
+
+//// Event Listeners for UI////
 
 addEventListener("keydown", ({ key }) => {
   switch (key) {
