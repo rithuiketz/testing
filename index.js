@@ -100,10 +100,11 @@ const keys = {
 ////Functions////
 
 function spawnTimer(){
-  timer += .1;
+  timer += .05;
   if (timer > 1){
-    spawnProjectiles()
+    spawnProjectile();
   }
+  else{}
   
 }
 
@@ -174,7 +175,7 @@ function animate() {
   }
 }
 
-setInterval(spawnTimer, 3000)
+setInterval(spawnTimer, 50)
 //setInterval(spawnProjectile, 3000)
 
 animate();
