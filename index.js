@@ -7,6 +7,7 @@ canvas.height = innerHeight;
 var score = 0;
 var missed = 0;
 var timer = 0.0;
+var interval = 3000;
 
 class Player {
   constructor() {
@@ -103,6 +104,7 @@ const keys = {
 //////YOU GOT HERE, YOU WERE CREATING DIFFICULTY LEVELS//////////
 function spawnProjectile() {
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
+  
   projectiles.push(
     new Projectile({
       position: {
