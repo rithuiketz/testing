@@ -89,6 +89,7 @@ class Projectile {
 
 const projectiles = [];
 
+
 const player = new Player();
 const keys = {
   a: { pressed: false },
@@ -100,16 +101,6 @@ const keys = {
 ////Functions////
 
 //////YOU GOT HERE, YOU WERE CREATING DIFFICULTY LEVELS//////////
-
-function spawnTimer(){
-  timer += .05;
-  if (timer > 1){
-    spawnProjectile();
-  }
-  else{}
-  
-}
-
 function spawnProjectile() {
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
   projectiles.push(
@@ -177,8 +168,7 @@ function animate() {
   }
 }
 
-setInterval(spawnTimer, 50)
-//setInterval(spawnProjectile, 3000)
+setInterval(spawnProjectile, 1000)
 
 animate();
 
