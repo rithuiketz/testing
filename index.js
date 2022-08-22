@@ -4,9 +4,9 @@ const c = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-var spawnTimer = 0.0;
 var score = 0;
 var missed = 0;
+var timer = 0.0;
 
 class Player {
   constructor() {
@@ -99,6 +99,13 @@ const keys = {
 
 ////Functions////
 
+function spawnTimer(){
+  timer += .1;
+  if (timer > 1){
+    spawnProjectiles()
+  }
+  
+}
 
 function spawnProjectile() {
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
@@ -167,7 +174,8 @@ function animate() {
   }
 }
 
-setInterval(spawnProjectile, 3000)
+setInterval(spawnTimer, 3000)
+//setInterval(spawnProjectile, 3000)
 
 animate();
 
