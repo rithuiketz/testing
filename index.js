@@ -199,21 +199,45 @@ addEventListener("keyup", ({ key }) => {
   }
 });
 
+////UI for Windows
 window.onload = function () {
-  document.getElementById("left").addEventListener('mousedown', function () {
+  document.getElementById("left").addEventListener("mousedown", function () {
     keys.a.pressed = true;
     keys.d.pressed = false;
   });
-  document.getElementById("right").addEventListener('mousedown', function () {
+  document.getElementById("right").addEventListener("mousedown", function () {
     keys.a.pressed = false;
     keys.d.pressed = true;
   }); //This is too hacky... How can you stop it when neither pressed?
-  document.getElementById("left").addEventListener('mouseup', function () {
+  document.getElementById("left").addEventListener("mouseup", function () {
     keys.a.pressed = false;
     keys.d.pressed = false;
   });
-  document.getElementById("right").addEventListener('mouseup', function () {
+  document.getElementById("right").addEventListener("mouseup", function () {
     keys.a.pressed = false;
     keys.d.pressed = false;
   });
 };
+
+////UI for Phone
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+
+  window.onload = function () {
+    document.getElementById("left").addEventListener('touchstart', function () {
+      keys.a.pressed = true;
+      keys.d.pressed = false;
+    });
+    document.getElementById("right").addEventListener('touchstart', function () {
+      keys.a.pressed = false;
+      keys.d.pressed = true;
+    }); //This is too hacky... How can you stop it when neither pressed?
+    document.getElementById("left").addEventListener('touchend', function () {
+      keys.a.pressed = false;
+      keys.d.pressed = false;
+    });
+    document.getElementById("right").addEventListener('touchend', function () {
+      keys.a.pressed = false;
+      keys.d.pressed = false;
+    });
+  };
+}
