@@ -99,6 +99,8 @@ const keys = {
 
 ////Functions////
 
+//////YOU GOT HERE, YOU WERE CREATING DIFFICULTY LEVELS//////////
+
 function spawnTimer(){
   timer += .05;
   if (timer > 1){
