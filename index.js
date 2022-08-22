@@ -123,6 +123,9 @@ function detectCollision(Projectile, Player, index) {
     Projectile.position.x < Player.position.x + Player.width / 2 &&
     Projectile.position.y > Player.position.y
   ) {
+    var audio = new Audio("https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/zapsplat_multimedia_game_sound_collect_coin_single_003_40823.mp3?v=1661163672804");
+    audio.loop = false;
+    audio.play;
     projectiles.splice(projectiles[index], 1);
     score = score + 1;
     console.log("score = " + score);
