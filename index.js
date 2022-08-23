@@ -170,7 +170,7 @@ function animate() {
   }
 }
 
-setInterval(spawnProjectile, 1000)
+setInterval(spawnProjectile, 3000)
 
 animate();
 
