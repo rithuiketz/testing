@@ -10,7 +10,7 @@ var timer = 0.0;
 var interval = 3000;
 
 
-const startGameButton = document.getElementById("startGameBtn")
+//const startGameButton = document.getElementById("startGameBtn")
 
 class Player {
   constructor() {
@@ -175,11 +175,7 @@ function animate() {
 
 //Start Game
 
-startGameButton.addEventListener("click", () => {
-  setInterval(spawnProjectile, 3000)
-  animate();
-  console.log("out")
-})
+
 
 //setInterval(spawnProjectile, 3000)
 //animate();
@@ -214,6 +210,11 @@ addEventListener("keyup", ({ key }) => {
 
 ////UI for Windows
 window.onload = function () {
+    document.getElementById("startGameBtn").addEventListener("click", () => {
+    setInterval(spawnProjectile, 3000)
+    animate();
+    console.log("out")
+  })
   document.getElementById("left").addEventListener("mousedown", function () {
     keys.a.pressed = true;
     keys.d.pressed = false;
