@@ -5,6 +5,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 var score = 0;
+var highScore = 0;
 var missed = 0;
 var timer = 0.0;
 var interval = 3000;
@@ -134,8 +135,12 @@ function detectCollision(Projectile, Player, index) {
     audio.play();
     projectiles.splice(projectiles[index], 1);
     score = score + 1;
+    if (score > highScore){
+      highScore = score;
+    }
     console.log("score = " + score);
     document.getElementById("score").innerHTML = "SCORE " + score;
+    document.getElementById("highScore).innerHTML = "highScore"
   }
   //loss point
   if (Projectile.position.y > canvas.height) {
@@ -212,8 +217,8 @@ addEventListener("keyup", ({ key }) => {
 window.onload = function () {
     document.getElementById("startGameBtn").addEventListener("click", () => {
     setInterval(spawnProjectile, 3000)
+    document.getElementById("startGame").style.visibility = "hidden";
     animate();
-    console.log("out")
   })
   document.getElementById("left").addEventListener("mousedown", function () {
     keys.a.pressed = true;
