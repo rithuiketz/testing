@@ -11,15 +11,5 @@
   left:30%;
   top:40%
 }
-/*shows image on device turns*/
-.turnDeviceNotification {
-  position:fixed;
-  top: 0;
-  left:0;
-  height:100%;
-  width:100%;
-  display: none;
-  background-image:url("https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/turnDevice.png?v=1662111765745");
-  background-size:100% 100%;
-}
+
   
