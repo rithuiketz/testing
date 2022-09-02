@@ -170,9 +170,15 @@ function animate() {
   }
 }
 
-setInterval(spawnProjectile, 3000)
+//Start Game
 
-animate();
+startGameBtn.addEventListener("click", () => {
+  setInterval(spawnProjectile, 3000)
+  animate();
+})
+
+//setInterval(spawnProjectile, 3000)
+//animate();
 
 
 //// Event Listeners for UI////
