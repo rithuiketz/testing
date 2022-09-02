@@ -237,6 +237,11 @@ window.onload = function () {
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 
   window.onload = function () {
+    document.getElementById("startGameBtn").addEventListener("touchstart", () => {
+      document.getElementById("GameBody").requestFullscreen()
+      setInterval(spawnProjectile, 3000)
+      animate();
+    })
     document.getElementById("left").addEventListener('touchstart', function () {
       keys.a.pressed = true;
       keys.d.pressed = false;
