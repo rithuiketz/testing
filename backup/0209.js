@@ -9,6 +9,8 @@ var missed = 0;
 var timer = 0.0;
 var interval = 3000;
 
+var myScreenOrientation = window.screen.orientation;
+
 class Player {
   constructor() {
     this.velocity = {
@@ -242,9 +244,12 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
       keys.a.pressed = false;
       keys.d.pressed = false;
     });
+    
+    //Screen orientation for mobile
+    myScreenOrientation.lock("portrait");
   };
   
-  screen.orientation.lock("portrait")
+  
 }
 
 
