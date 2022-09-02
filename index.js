@@ -238,7 +238,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 
   window.onload = function () {
     document.getElementById("startGameBtn").addEventListener("touchstart", () => {
-      document.getElementById("GameBody").requestFullscreen()
+      document.getElementById("GameBody").requestFullscreen();
+      document.getElementById("startGame").style.visibility = "hidden";
       setInterval(spawnProjectile, 3000)
       animate();
     })
