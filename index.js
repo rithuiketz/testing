@@ -114,7 +114,7 @@ function spawnProjectile() {
         ),
         y: 0,
       },
-      velocity: { x: 0, y: 2 },
+      velocity: { x: 0, y: 2+(score/5) },
     })
   );
 }
@@ -244,3 +244,29 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
     });
   };
 }
+
+
+//Device Turning message
+jQuery(window).bind('orientationchange', function(e) {
+ switch ( window.orientation ) {
+  case 0:
+    $('.turnDeviceNotification').css('display', 'none');
+    // The device is in portrait mode now
+  break;
+
+  case 180:
+    $('.turnDeviceNotification').css('display', 'none');
+    // The device is in portrait mode now
+  break;
+
+  case 90:
+    // The device is in landscape now
+    $('.turnDeviceNotification').css('display', 'block');
+  break;
+
+  case -90:
+    // The device is in landscape now
+    $('.turnDeviceNotification').css('display', 'block');
+  break;
+ }
+});
