@@ -9,6 +9,9 @@ var missed = 0;
 var timer = 0.0;
 var interval = 3000;
 
+
+const startGameButton = document.getElementById("startGameBtn")
+
 class Player {
   constructor() {
     this.velocity = {
@@ -172,9 +175,10 @@ function animate() {
 
 //Start Game
 
-startGameBtn.addEventListener("click", () => {
+startGameButton.addEventListener("click", () => {
   setInterval(spawnProjectile, 3000)
   animate();
+  console.log("out")
 })
 
 //setInterval(spawnProjectile, 3000)
