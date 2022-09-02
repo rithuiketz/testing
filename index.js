@@ -140,13 +140,17 @@ function detectCollision(Projectile, Player, index) {
     }
     console.log("score = " + score);
     document.getElementById("score").innerHTML = "SCORE " + score;
-    document.getElementById("highScore).innerHTML = "highScore"
+    document.getElementById("highScore").innerHTML = highScore;
   }
   //loss point
   if (Projectile.position.y > canvas.height) {
     projectiles.splice(projectiles[index], 1);
     missed = missed + 1;
     console.log("Missed = " + missed);
+      if (missed > 2){
+        document.getElementById("startGame").style.visibility = "visible";
+      }
+      else{}
   } else {
   }
 }
@@ -176,6 +180,10 @@ function animate() {
   } else {
     player.velocity.x = 0;
   }
+  if (missed > 2){
+    console.log("Lost, stop animation")//////////////////////Not stopping game, find out how to escape function!!!!!!!!!!!!!!!!!!
+        return;
+      }
 }
 
 //Start Game
@@ -218,7 +226,9 @@ window.onload = function () {
     document.getElementById("startGameBtn").addEventListener("click", () => {
     setInterval(spawnProjectile, 3000)
     document.getElementById("startGame").style.visibility = "hidden";
+    score = 0;
     animate();
+    
   })
   document.getElementById("left").addEventListener("mousedown", function () {
     keys.a.pressed = true;
@@ -246,6 +256,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
       document.getElementById("GameBody").requestFullscreen();
       document.getElementById("startGame").style.visibility = "hidden";
       setInterval(spawnProjectile, 3000)
+      score = 0;
       animate();
     })
     document.getElementById("left").addEventListener('touchstart', function () {
