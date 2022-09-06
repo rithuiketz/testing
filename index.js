@@ -148,6 +148,9 @@ function detectCollision(Projectile, Player, index) {
     console.log("Missed = " + missed);
       if (missed > 2){
         document.getElementById("startGame").style.visibility = "visible";
+        projectiles.forEach((Projectile, index) => {  
+          projectiles.splice(projectiles[index], 1);
+        });
       }
       else{}
   } else {
@@ -188,12 +191,6 @@ function animate() {
   
 }
 
-//Start Game
-
-
-
-//setInterval(spawnProjectile, 3000)
-//animate();
 
 
 //// Event Listeners for UI////
@@ -231,6 +228,8 @@ window.onload = function () {
     score = 0;
     missed = 0;
     animate();
+      
+      
     
   })
   document.getElementById("left").addEventListener("mousedown", function () {
@@ -261,10 +260,11 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
       setInterval(spawnProjectile, 3000)
       score = 0;
       missed = 0;
-      projectiles.forEach((Projectile, index) => {
-        Projectile.delete();
-      })
       animate();
+      
+      
+      
+      
     })
     document.getElementById("left").addEventListener('touchstart', function () {
       keys.a.pressed = true;
