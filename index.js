@@ -155,6 +155,12 @@ function detectCollision(Projectile, Player, index) {
 }
 
 function animate() {
+  
+  if (missed > 2){
+    
+    console.log("Lost, stop animation")
+    return;
+    }
   requestAnimationFrame(animate);
   c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height); //Canvas background
@@ -179,12 +185,7 @@ function animate() {
   } else {
     player.velocity.x = 0;
   }
-  if (missed > 2){
-    
-    console.log("Lost, stop animation")//////////////////////Not stopping game, find out how to escape function!!!!!!!!!!!!!!!!!!
-        return;
-      }
-  else{}
+  
 }
 
 //Start Game
@@ -228,6 +229,7 @@ window.onload = function () {
     setInterval(spawnProjectile, 3000)
     document.getElementById("startGame").style.visibility = "hidden";
     score = 0;
+    missed = 0;
     animate();
     
   })
@@ -258,6 +260,10 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
       document.getElementById("startGame").style.visibility = "hidden";
       setInterval(spawnProjectile, 3000)
       score = 0;
+      missed = 0;
+      projectiles.forEach((Projectile, index) => {
+        Projectile.delete();
+      })
       animate();
     })
     document.getElementById("left").addEventListener('touchstart', function () {
