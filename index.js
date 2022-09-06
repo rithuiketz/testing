@@ -105,7 +105,6 @@ const keys = {
 
 ////Functions////
 
-//////YOU GOT HERE, YOU WERE CREATING DIFFICULTY LEVELS//////////
 function spawnProjectile() {
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
   
@@ -181,9 +180,11 @@ function animate() {
     player.velocity.x = 0;
   }
   if (missed > 2){
+    
     console.log("Lost, stop animation")//////////////////////Not stopping game, find out how to escape function!!!!!!!!!!!!!!!!!!
         return;
       }
+  else{}
 }
 
 //Start Game
