@@ -218,7 +218,11 @@ addEventListener("keyup", ({ key }) => {
 ////UI for Windows
 window.onload = function () {
   document.getElementById("startGameBtn").addEventListener("click", () => {
-    setInterval(spawnProjectile, 3000);
+    if (replayflag == false){
+      replayflag = true;
+      setInterval(spawnProjectile, 3000);
+    }
+    else{}
     document.getElementById("startGame").style.visibility = "hidden";
     score = 0;
     document.getElementById("score").innerHTML = "SCORE " + score;
@@ -255,7 +259,11 @@ if (
       .addEventListener("touchstart", () => {
         document.getElementById("GameBody").requestFullscreen();
         document.getElementById("startGame").style.visibility = "hidden";
-        setInterval(spawnProjectile, 3000);
+        if (replayflag == false){
+          replayflag = true;
+          setInterval(spawnProjectile, 3000);
+        }
+        else{}
         score = 0;
         document.getElementById("score").innerHTML = "SCORE " + score;
         missed = 0;
