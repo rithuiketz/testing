@@ -9,7 +9,7 @@ var highScore = 0;
 var missed = 0;
 var timer = 0.0;
 var interval = 3000;
-
+var replayflag = false;
 
 //const startGameButton = document.getElementById("startGameBtn")
 
@@ -35,7 +35,6 @@ class Player {
     };
   }
   draw() {
-
     c.drawImage(
       this.image,
       this.position.x,
@@ -94,7 +93,6 @@ class Projectile {
 
 const projectiles = [];
 
-
 const player = new Player();
 const keys = {
   a: { pressed: false },
@@ -102,12 +100,11 @@ const keys = {
   space: { pressed: false },
 };
 
-
 ////Functions////
 
 function spawnProjectile() {
   //const projectiles.,push = [new Projectile({position: {x:canvas.width/10, y:canvas.height/10}, velocity: {x:0, y:2}})]
-  
+
   projectiles.push(
     new Projectile({
       position: {
@@ -117,7 +114,7 @@ function spawnProjectile() {
         ),
         y: 0,
       },
-      velocity: { x: 0, y: 2+(score/5) },
+      velocity: { x: 0, y: 2 + score / 5 },
     })
   );
 }
@@ -129,12 +126,14 @@ function detectCollision(Projectile, Player, index) {
     Projectile.position.x < Player.position.x + Player.width / 2 &&
     Projectile.position.y > Player.position.y
   ) {
-    var audio = new Audio("https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/zapsplat_multimedia_game_sound_collect_coin_single_003_40823.mp3?v=1661163672804");
+    var audio = new Audio(
+      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/zapsplat_multimedia_game_sound_collect_coin_single_003_40823.mp3?v=1661163672804"
+    );
     audio.loop = false;
     audio.play();
     projectiles.splice(projectiles[index], 1);
     score = score + 1;
-    if (score > highScore){
+    if (score > highScore) {
       highScore = score;
     }
     console.log("score = " + score);
@@ -147,22 +146,20 @@ function detectCollision(Projectile, Player, index) {
     missed = missed + 1;
     console.log("Missed = " + missed);
     //When the player loses
-      if (missed > 2){
-        document.getElementById("startGame").style.visibility = "visible";
-        projectiles.forEach((Projectile, index) => {  
-          projectiles.length = 0;
-        });
-      }
-      else{}
+    if (missed > 2) {
+      document.getElementById("startGame").style.visibility = "visible";
+      projectiles.forEach((Projectile, index) => {
+        projectiles.length = 0;
+      });
+    } else {
+    }
   } else {
   }
 }
 
 function animate() {
-  
-  if (missed > 2){
-    
-    console.log("Lost, stop animation")
+  if (missed > 2) {
+    console.log("Lost, stop animation");
     return;
   }
   requestAnimationFrame(animate);
@@ -189,10 +186,7 @@ function animate() {
   } else {
     player.velocity.x = 0;
   }
-  
 }
-
-
 
 //// Event Listeners for UI////
 
@@ -223,17 +217,14 @@ addEventListener("keyup", ({ key }) => {
 
 ////UI for Windows
 window.onload = function () {
-    document.getElementById("startGameBtn").addEventListener("click", () => {
-    setInterval(spawnProjectile, 3000)
+  document.getElementById("startGameBtn").addEventListener("click", () => {
+    setInterval(spawnProjectile, 3000);
     document.getElementById("startGame").style.visibility = "hidden";
     score = 0;
     document.getElementById("score").innerHTML = "SCORE " + score;
     missed = 0;
     animate();
-      
-      
-    
-  })
+  });
   document.getElementById("left").addEventListener("mousedown", function () {
     keys.a.pressed = true;
     keys.d.pressed = false;
@@ -253,41 +244,42 @@ window.onload = function () {
 };
 
 ////UI for Phone
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
   window.onload = function () {
-    document.getElementById("startGameBtn").addEventListener("touchstart", () => {
-      document.getElementById("GameBody").requestFullscreen();
-      document.getElementById("startGame").style.visibility = "hidden";
-      setInterval(spawnProjectile, 3000)
-      score = 0;
-      document.getElementById("score").innerHTML = "SCORE " + score;
-      missed = 0;
-      animate();
-      
-      
-      
-      
-    })
-    document.getElementById("left").addEventListener('touchstart', function () {
+    document
+      .getElementById("startGameBtn")
+      .addEventListener("touchstart", () => {
+        document.getElementById("GameBody").requestFullscreen();
+        document.getElementById("startGame").style.visibility = "hidden";
+        setInterval(spawnProjectile, 3000);
+        score = 0;
+        document.getElementById("score").innerHTML = "SCORE " + score;
+        missed = 0;
+        animate();
+      });
+    document.getElementById("left").addEventListener("touchstart", function () {
       keys.a.pressed = true;
       keys.d.pressed = false;
     });
-    document.getElementById("right").addEventListener('touchstart', function () {
-      keys.a.pressed = false;
-      keys.d.pressed = true;
-    }); //This is too hacky... How can you stop it when neither pressed?
-    document.getElementById("left").addEventListener('touchend', function () {
+    document
+      .getElementById("right")
+      .addEventListener("touchstart", function () {
+        keys.a.pressed = false;
+        keys.d.pressed = true;
+      }); //This is too hacky... How can you stop it when neither pressed?
+    document.getElementById("left").addEventListener("touchend", function () {
       keys.a.pressed = false;
       keys.d.pressed = false;
     });
-    document.getElementById("right").addEventListener('touchend', function () {
+    document.getElementById("right").addEventListener("touchend", function () {
       keys.a.pressed = false;
       keys.d.pressed = false;
     });
   };
-  
-  screen.orientation.lock("portrait")
+
+  screen.orientation.lock("portrait");
 }
-
-
