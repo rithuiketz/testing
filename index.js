@@ -146,10 +146,11 @@ function detectCollision(Projectile, Player, index) {
     projectiles.splice(projectiles[index], 1);
     missed = missed + 1;
     console.log("Missed = " + missed);
+    //When the player loses
       if (missed > 2){
         document.getElementById("startGame").style.visibility = "visible";
         projectiles.forEach((Projectile, index) => {  
-          projectiles.splice(projectiles[index], 1);
+          projectiles.length = 0;
         });
       }
       else{}
