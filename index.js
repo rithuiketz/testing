@@ -140,7 +140,30 @@ function detectCollision(Projectile, Player, index) {
     document.getElementById("score").innerHTML = "SCORE " + score;
     document.getElementById("highScore").innerHTML = highScore;
   }
-  //Reset and set missed scores
+  
+
+  //loss point
+  if (Projectile.position.y > canvas.height) {
+    projectiles.splice(projectiles[index], 1);
+    missed = missed + 1;
+    console.log("Missed = " + missed);
+    //When the player loses
+    
+    missedCounter();
+
+    if (missed > 2) {
+      document.getElementById("startGame").style.visibility = "visible";
+      projectiles.forEach((Projectile, index) => {
+        projectiles.length = 0;
+      });
+    } else {
+    }
+  } else {
+  }
+}
+
+//Reset and set missed scores
+function missedCounter(){
   if (missed == 0) {
     document.getElementById("Missed1").src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308";
@@ -165,29 +188,13 @@ function detectCollision(Projectile, Player, index) {
     document.getElementById("Missed3").src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308";
   }
-
-  //loss point
-  if (Projectile.position.y > canvas.height) {
-    projectiles.splice(projectiles[index], 1);
-    missed = missed + 1;
-    console.log("Missed = " + missed);
-    //When the player loses
-
-    if (missed > 2) {
+  if (missed > 2) {
       document.getElementById("Missed1").src =
         "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho_Redcross.png?v=1662562755308";
       document.getElementById("Missed2").src =
         "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho_Redcross.png?v=1662562755308";
       document.getElementById("Missed3").src =
         "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho_Redcross.png?v=1662562755308";
-      document.getElementById("startGame").style.visibility = "visible";
-
-      projectiles.forEach((Projectile, index) => {
-        projectiles.length = 0;
-      });
-    } else {
-    }
-  } else {
   }
 }
 
