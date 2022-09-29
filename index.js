@@ -268,6 +268,7 @@ window.onload = function () {
     score = 0;
     document.getElementById("score").innerHTML = "SCORE " + score;
     missed = 0;
+    missedCounter();
     animate();
   });
   document.getElementById("left").addEventListener("mousedown", function () {
@@ -308,6 +309,7 @@ if (
         score = 0;
         document.getElementById("score").innerHTML = "SCORE " + score;
         missed = 0;
+        missedCounter();
         animate();
       });
     document.getElementById("left").addEventListener("touchstart", function () {
