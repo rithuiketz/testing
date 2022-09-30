@@ -3,6 +3,20 @@
   width: 500px;
   height: 500px;
 }
+.startGame{
+  height: 20%;
+  width: 60%;
+  position: fixed;
+  left: 20%;
+  top: 40%;
+  background-color: #0000ff;
+  background-image: linear-gradient(to right, #0000cc, #0000ff);
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-color: white;
+  border-radius: 25px;
+}
 #canvas {
   position: absolute;
 }
