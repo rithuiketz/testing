@@ -139,6 +139,7 @@ function detectCollision(Projectile, Player, index) {
     }
     console.log("score = " + score);
     //document.getElementById("score").innerHTML = "SCORE " + score;
+    scorePrerollGenerate();
     document.getElementById("score").innerHTML = "" + scorePreroll + score;
     document.getElementById("highScore").innerHTML = highScore;
   }
