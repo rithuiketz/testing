@@ -5,6 +5,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 var score = 0;
+var scorePreroll = 0;
 var highScore = 0;
 var missed = 0;
 var timer = 0.0;
@@ -137,7 +138,8 @@ function detectCollision(Projectile, Player, index) {
       highScore = score;
     }
     console.log("score = " + score);
-    document.getElementById("score").innerHTML = "SCORE " + score;
+    //document.getElementById("score").innerHTML = "SCORE " + score;
+    document.getElementById("score").innerHTML = "" + scorePreroll + score;
     document.getElementById("highScore").innerHTML = highScore;
   }
   
@@ -195,6 +197,24 @@ function missedCounter(){
         "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho_Redcross.png?v=1662562755308";
       document.getElementById("Missed3").src =
         "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho_Redcross.png?v=1662562755308";
+  }
+}
+
+function scorePrerollGenerate(){
+  if (score < 10000){
+    scorePreroll = "0"
+  }
+  if (score < 1000){
+    scorePreroll = "00"
+  }
+  if (score < 100){
+    scorePreroll = "000"
+  }
+  if (score < 10){
+    scorePreroll = "0000"
+  }
+  else if (score < 1){
+    scorePreroll = "00000"
   }
 }
 
@@ -266,7 +286,9 @@ window.onload = function () {
     }
     document.getElementById("startGame").style.visibility = "hidden";
     score = 0;
-    document.getElementById("score").innerHTML = "SCORE " + score;
+    scorePrerollGenerate();
+    
+    document.getElementById("score").innerHTML = scorePreroll + score;
     missed = 0;
     missedCounter();
     animate();
@@ -307,7 +329,8 @@ if (
         } else {
         }
         score = 0;
-        document.getElementById("score").innerHTML = "SCORE " + score;
+        scorePrerollGenerate();
+        document.getElementById("score").innerHTML = scorePreroll + score;
         missed = 0;
         missedCounter();
         animate();
