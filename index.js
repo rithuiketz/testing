@@ -11,7 +11,10 @@ var missed = 0;
 var timer = 0.0;
 var interval = 3000;
 var replayflag = false;
-var refreshIntervalId;
+var refreshIntervalId; 
+var 
+
+      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775";
 
 //const startGameButton = document.getElementById("startGameBtn")
 
@@ -24,9 +27,9 @@ class Player {
 
     const image = new Image();
     image.src =
-      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right.gif?v=1666111004123"; //Transport this to ./imgfolder eventually
+      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775"; //Transport this to ./imgfolder eventually
     image.onload = () => {
-      const scale = 0.25;
+      const scale = 0.4;
       this.image = image;
       this.width = image.width * scale;
       this.height = image.height * scale;
