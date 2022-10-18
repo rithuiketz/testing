@@ -31,7 +31,7 @@ class Player {
       this.height = image.height * scale;
       this.position = {
         x: canvas.width / 2 - this.width / 2,
-        y: canvas.height - this.height - 50,
+        y: canvas.height - this.height - 150,
       };
     };
   }
@@ -146,7 +146,7 @@ function detectCollision(Projectile, Player, index) {
   
 
   //loss point
-  if (Projectile.position.y > canvas.height) {
+  if (Projectile.position.y > canvas.height+100) {
     projectiles.splice(projectiles[index], 1);
     missed = missed + 1;
     console.log("Missed = " + missed);
