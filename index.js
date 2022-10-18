@@ -11,6 +11,7 @@ var missed = 0;
 var timer = 0.0;
 var interval = 3000;
 var replayflag = false;
+var refreshIntervalId;
 
 //const startGameButton = document.getElementById("startGameBtn")
 
@@ -138,7 +139,8 @@ function detectCollision(Projectile, Player, index) {
   if (
     Player.position.x - Player.width / 2 < Projectile.position.x &&
     Projectile.position.x < Player.position.x + Player.width / 2 &&
-    Projectile.position.y > Player.position.y
+    Projectile.position.y > Player.position.y + Player.height / 2 &&
+    Projectile.position.y < Player.position.y + Player.height / 2
   ) {
     var audio = new Audio(
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/zapsplat_multimedia_game_sound_collect_coin_single_003_40823.mp3?v=1661163672804"
@@ -169,6 +171,8 @@ function detectCollision(Projectile, Player, index) {
 
     if (missed > 2) {
       document.getElementById("startGame").style.visibility = "visible";
+      clearInterval(refreshIntervalId);
+      replayflag = false;
       projectiles.forEach((Projectile, index) => {
         projectiles.length = 0;
       });
@@ -295,7 +299,7 @@ window.onload = function () {
   document.getElementById("startGameBtn").addEventListener("click", () => {
     if (replayflag == false) {
       replayflag = true;
-      setInterval(spawnProjectile, 3000);
+      refreshIntervalId = setInterval(spawnProjectile, 3000);
     } else {
     }
     document.getElementById("startGame").style.visibility = "hidden";
@@ -339,7 +343,7 @@ if (
         document.getElementById("startGame").style.visibility = "hidden";
         if (replayflag == false) {
           replayflag = true;
-          setInterval(spawnProjectile, 3000);
+          refreshIntervalId = setInterval(spawnProjectile, 3000);
         } else {
         }
         score = 0;
