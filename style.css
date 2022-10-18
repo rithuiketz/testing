@@ -25,3 +25,10 @@
   left:30%;
   top:40%
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
