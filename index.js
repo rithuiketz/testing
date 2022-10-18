@@ -75,7 +75,7 @@ class Projectile {
     }
     
     splat.onload = () => {
-      const scale = 0.6;
+      const scale = 0.4;
       this.image = splat;
       this.width = splat.width * scale;
       this.height = splat.height * scale;
