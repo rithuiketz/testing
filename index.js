@@ -12,9 +12,7 @@ var timer = 0.0;
 var interval = 3000;
 var replayflag = false;
 var refreshIntervalId; 
-var 
-
-      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775";
+var rightWalk = "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775";
 
 //const startGameButton = document.getElementById("startGameBtn")
 
@@ -26,8 +24,7 @@ class Player {
     };
 
     const image = new Image();
-    image.src =
-      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775"; //Transport this to ./imgfolder eventually
+    image.src = rightWalk;
     image.onload = () => {
       const scale = 0.4;
       this.image = image;
