@@ -59,10 +59,23 @@ class Projectile {
     this.velocity = velocity;
 
     const splat = new Image();
-    splat.src =
-      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/splat.png?v=1660812897838"; //Transport this to ./imgfolder eventually
+    
+    var randomiser = Math.floor(Math.random()*3)
+    if (randomiser == 0){
+      splat.src =
+      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Yellow-2.png?v=1665651897387"; //Transport this to ./imgfolder eventually
+    }
+    if (randomiser == 1){
+      splat.src =
+      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Yellow.png?v=1665651897687"; //Transport this to ./imgfolder eventually
+    }
+    if (randomiser == 2){
+      splat.src =
+      "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Eno-Sachet.png?v=1665651897921"; //Transport this to ./imgfolder eventually
+    }
+    
     splat.onload = () => {
-      const scale = 0.2;
+      const scale = 0.6;
       this.image = splat;
       this.width = splat.width * scale;
       this.height = splat.height * scale;
@@ -146,7 +159,7 @@ function detectCollision(Projectile, Player, index) {
   
 
   //loss point
-  if (Projectile.position.y > canvas.height+100) {
+  if (Projectile.position.y > canvas.height-100) {
     projectiles.splice(projectiles[index], 1);
     missed = missed + 1;
     console.log("Missed = " + missed);
