@@ -139,7 +139,7 @@ function detectCollision(Projectile, Player, index) {
   if (
     Player.position.x - Player.width / 2 < Projectile.position.x &&
     Projectile.position.x < Player.position.x + Player.width / 2 &&
-    Projectile.position.y > Player.position.y + Player.height / 2 &&
+    Projectile.position.y > Player.position.y - Player.height / 2 &&
     Projectile.position.y < Player.position.y + Player.height / 2
   ) {
     var audio = new Audio(
