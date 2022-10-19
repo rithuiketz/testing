@@ -299,7 +299,7 @@ window.onload = function () {
   document.getElementById("startGameBtn").addEventListener("click", () => {
     if (replayflag == false) {
       replayflag = true;
-      refreshIntervalId = setInterval(spawnProjectile, 3000);
+      refreshIntervalId = setInterval(spawnProjectile, 1500);
     } else {
     }
     document.getElementById("startGame").style.visibility = "hidden";
@@ -343,7 +343,7 @@ if (
         document.getElementById("startGame").style.visibility = "hidden";
         if (replayflag == false) {
           replayflag = true;
-          refreshIntervalId = setInterval(spawnProjectile, 3000);
+          refreshIntervalId = setInterval(spawnProjectile, 1500);
         } else {
         }
         score = 0;
