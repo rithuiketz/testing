@@ -171,6 +171,8 @@ function detectCollision(Projectile, Player, index) {
 
     if (missed > 2) {
       document.getElementById("startGame").style.visibility = "visible";
+      document.getElementById("promo").style.visibility = "visible";
+      document.getElementById("closePromo").style.visibility = "visible";
       clearInterval(refreshIntervalId);
       replayflag = false;
       projectiles.forEach((Projectile, index) => {
@@ -327,6 +329,11 @@ window.onload = function () {
     keys.a.pressed = false;
     keys.d.pressed = false;
   });
+  document.getElementById("closePromo").addEventListener("mousedown", function () {
+    
+      document.getElementById("promo").style.visibility = "hidden";
+      document.getElementById("closePromo").style.visibility = "hidden";
+  });
 };
 
 ////UI for Phone
@@ -371,6 +378,11 @@ if (
       keys.a.pressed = false;
       keys.d.pressed = false;
     });
+    document.getElementById("closePromo").addEventListener("touchstart", function () {
+    
+      document.getElementById("promo").style.visibility = "hidden";
+      document.getElementById("closePromo").style.visibility = "hidden";
+  });
   };
 
   screen.orientation.lock("portrait");
