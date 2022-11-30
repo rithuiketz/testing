@@ -2,107 +2,106 @@
 <html lang="en">
   <head>
     <title>Eno Nacho Game!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
-    <meta name="apple-mobile-app-capable" content="yes">  
-    
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimal-ui"
+    />
+    <meta name="apple-mobile-app-capable" content="yes" />
+
     <script src="./index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
-  <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
-  
-  <script type="text/javascript">
-    let video = null;
-    let CANVAS = null;
-    let CONTEXT = null;
-    let SCALER = 1;
-    let SIZE = { x: 0, y: 0, width: 0, height: 0 };
-    
-    var score = 0;
-        var scorePreroll = 0;
-        var highScore = 0;
-        var missed = 0;
-        var timer = 0.0;
-        var interval = 3000;
-        var replayflag = false;
-        var refreshIntervalId;
-    
-    
-    console.log("loaded");
-    async function main() {
-      //Opens Camera
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
 
-      console.log("mainReached");
-      CANVAS = document.getElementById("myCanvas");
-      CONTEXT = CANVAS.getContext("2d");
-      CANVAS.width = window.innerWidth;
-      CANVAS.height = window.innerHeight;
-      let promise = navigator.mediaDevices.getUserMedia({ video: true });
-      promise
-        .then(function (signal) {
-          video = document.createElement("video");
-          video.srcObject = signal;
-          video.play();
+    <script type="text/javascript">
+      let video = null;
+      let CANVAS = null;
+      let CONTEXT = null;
+      let SCALER = 1;
+      let SIZE = { x: 0, y: 0, width: 0, height: 0 };
 
-          video.onloadeddata = function () {
-            let resizer =
-              SCALER *
-              Math.min(
-                window.innerWidth / video.videoWidth,
-                window.innerHeight / video.videoHeight
-              );
-            let aspectRatio = video.videoWidth / video.videoHeight; //used to stretch widtha nd keep height at max
-            
+      var score = 0;
+      var scorePreroll = 0;
+      var highScore = 0;
+      var missed = 0;
+      var timer = 0.0;
+      var interval = 3000;
+      var replayflag = false;
+      var refreshIntervalId;
 
-            SIZE.width = window.innerHeight * aspectRatio; //resizer*VIDEO.videoWidth;
-            SIZE.height = window.innerHeight; //resizer*VIDEO.videoHeight;
-            SIZE.x = window.innerWidth / 2 - SIZE.width / 2; //*aspectRatio;
-            SIZE.y = window.innerHeight / 2 - SIZE.height / 2;
-            updateCanvas();
-          };
-        })
-        .catch(function (err) {
-          alert("Camera error: " + err);
-        });
+      console.log("loaded");
+      async function main() {
+        //Opens Camera
 
-      fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
-      renderPrediction();
-    }
+        console.log("mainReached");
+        CANVAS = document.getElementById("myCanvas");
+        CONTEXT = CANVAS.getContext("2d");
+        CANVAS.width = window.innerWidth;
+        CANVAS.height = window.innerHeight;
+        let promise = navigator.mediaDevices.getUserMedia({ video: true });
+        promise
+          .then(function (signal) {
+            video = document.createElement("video");
+            video.srcObject = signal;
+            video.play();
 
-    //Update Camera
-    function updateCanvas() {
-      CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
-      window.requestAnimationFrame(updateCanvas);
-    }
-    
+            video.onloadeddata = function () {
+              let resizer =
+                SCALER *
+                Math.min(
+                  window.innerWidth / video.videoWidth,
+                  window.innerHeight / video.videoHeight
+                );
+              let aspectRatio = video.videoWidth / video.videoHeight; //used to stretch widtha nd keep height at max
 
-    var curFaces = [];
-    async function renderPrediction() {
-      // Call face Mesh on our video stream
-      const facepred = await fmesh.estimateFaces(video);
+              SIZE.width = window.innerHeight * aspectRatio; //resizer*VIDEO.videoWidth;
+              SIZE.height = window.innerHeight; //resizer*VIDEO.videoHeight;
+              SIZE.x = window.innerWidth / 2 - SIZE.width / 2; //*aspectRatio;
+              SIZE.y = window.innerHeight / 2 - SIZE.height / 2;
+              updateCanvas();
+            };
+          })
+          .catch(function (err) {
+            alert("Camera error: " + err);
+          });
 
-      // If we find a face, export it to a global variable so we can access it elsewhere
-      if (facepred.length > 0) {
-        curFaces = facepred;
-      }
-      //console.log(facepred.length);
-
-      for (face of curFaces) {
-        //drawFace(face);
-        controlChar(face);
+        fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
+        renderPrediction();
       }
 
-      // Call itself again
-      requestAnimationFrame(renderPrediction);
-    }
+      //Update Camera
+      function updateCanvas() {
+        CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
+        window.requestAnimationFrame(updateCanvas);
+      }
 
-    function controlChar(face) {
-      let mesh = face.scaledMesh;
-      let lipTop = mesh[117][0];
-      console.log(lipTop);
-      document.getElementById("myNumber").value = lipTop;
-    }
-    
-  </script>
+      var curFaces = [];
+      async function renderPrediction() {
+        // Call face Mesh on our video stream
+        const facepred = await fmesh.estimateFaces(video);
+
+        // If we find a face, export it to a global variable so we can access it elsewhere
+        if (facepred.length > 0) {
+          curFaces = facepred;
+        }
+        //console.log(facepred.length);
+
+        for (face of curFaces) {
+          //drawFace(face);
+          controlChar(face);
+        }
+
+        // Call itself again
+        requestAnimationFrame(renderPrediction);
+      }
+
+      function controlChar(face) {
+        let mesh = face.scaledMesh;
+        let lipTop = mesh[117][0];
+        console.log(lipTop);
+        document.getElementById("myNumber").value = lipTop;
+      }
+    </script>
   </head>
 
   <style>
@@ -110,7 +109,6 @@
       margin: 0;
     }
     h1 {
-      
       font-family: Verdana;
       color: darkblue;
       font-size: 4vw;
@@ -122,7 +120,7 @@
       font-size: 6vw;
       font-style: italic;
       margin: 5px;
-      width:100%;
+      width: 100%;
       text-align: center;
     }
     h3 {
@@ -135,45 +133,42 @@
       margin: 5px;
     }
   </style>
-  <div>
-    <canvas id="myCanvas" style= "position:absolute; top:0px; left:0px;
-    width:100%;
-    height:100%;"></canvas>
-  </div>
-  
-  <div>
-    <canvas
-      style="
-        
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-      "
-      id="gameCanvas" 
-    >
-    </canvas>
-  </div>
 
-  
-
-  <body id="GameBody" >
+  <body id="GameBody" onload="main()">
     <!--<body id="GameBody"> onload="main()">-->
-    
+    <div>
+      <canvas
+        id="myCanvas"
+        style="
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+        "
+      ></canvas>
+    </div>
+
+    <div>
+      <canvas
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+        "
+        id="gameCanvas"
+      >
+      </canvas>
+    </div>
     <div oncontextmenu="return false;">
       <input
         type="image"
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Left.png?v=1661168932510"
-        style="
-          height: 30%;
-          width: 7%;
-          position: absolute;
-          left: 7%;
-          top: 60%;
-        "
+        style="height: 30%; width: 7%; position: absolute; left: 7%; top: 60%"
         id="left"
       />
     </div>
@@ -181,13 +176,7 @@
       <input
         type="image"
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Right.png?v=1661164677708"
-        style="
-          height: 30%;
-          width: 7%;
-          position: absolute;
-          left: 86%;
-          top: 60%;
-        "
+        style="height: 30%; width: 7%; position: absolute; left: 86%; top: 60%"
         id="right"
       />
     </div>
@@ -201,7 +190,7 @@
         position: fixed;
         left: 20%;
         top: 40%;
-        background-color: #21B3E8;
+        background-color: #21b3e8;
         display: flex;
         justify-content: center;
         border-style: solid;
@@ -211,18 +200,19 @@
     >
       <div>
         <h1 style="display: flex; justify-content: center">Maior Pontuação</h1>
-        <h1 id="highScore" style="display: flex; justify-content: center; margin: 5px">0</h1>
-        
+        <h1
+          id="highScore"
+          style="display: flex; justify-content: center; margin: 5px"
+        >
+          0
+        </h1>
+
         <input
-               type="image"
-               src = "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/play.png?v=1666109745364"
-               id="startGameBtn"
-               style="
-                  width: 20%;
-                  right: 22%;
-                  margin-left: 40%;
-                  margin-top: 2%;"
-               >
+          type="image"
+          src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/play.png?v=1666109745364"
+          id="startGameBtn"
+          style="width: 20%; right: 22%; margin-left: 40%; margin-top: 2%"
+        />
 
         <!--<button
           id="startGameBtn"
@@ -241,10 +231,8 @@
       </div>
     </div>
 
-    
-    
     <!--New Scoring-->
-    
+
     <div>
       <img
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Points-Image.png?v=1666018078457"
@@ -257,33 +245,20 @@
           left: 30%;
         "
       />
-        <h2
+      <h2
         id="score"
         value=""
-        style="
-          position: absolute;
-          bottom: 6%;
-          text-align: center;
-        "
-      >
-      </h2>
-      
+        style="position: absolute; bottom: 6%; text-align: center"
+      ></h2>
+
       <!--<input type="button" value="score:" style="height:10%;width:10%; position:absolute;  left:10%;  top:10%;"  id="score"/>-->
     </div>
-    
-    
-    
 
     <div>
       <img
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308"
         alt="A perfectly cromulent score"
-        style="
-          height: 7%;
-          position: absolute;
-          right: 32%;
-          top: 5%;
-        "
+        style="height: 7%; position: absolute; right: 32%; top: 5%"
         id="Missed1"
       />
     </div>
@@ -291,12 +266,7 @@
       <img
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308"
         alt="A perfectly cromulent score"
-        style="
-          height: 7%;
-          position: absolute;
-          right: 18%;
-          top: 5%;
-        "
+        style="height: 7%; position: absolute; right: 18%; top: 5%"
         id="Missed2"
       />
     </div>
@@ -304,44 +274,39 @@
       <img
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308"
         alt="A perfectly cromulent score"
-        style="
-          height: 7%;
-          position: absolute;
-          right: 4%;
-          top: 5%;
-        "
+        style="height: 7%; position: absolute; right: 4%; top: 5%"
         id="Missed3"
       />
     </div>
-    
-    <div id="promo" style="visibility: hidden;">
+
+    <div id="promo" style="visibility: hidden">
       <img
         src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Coupon.png?v=1666602467163"
         alt="promo"
-        style="
-          height: 100vh;
-          width: 100vw;
-          position: absolute;
-        "
+        style="height: 100vh; width: 100vw; position: absolute"
       />
     </div>
     <input
-           type="image"
-           src = "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
-           id="closePromo"
-           style="
-              width: 10%;
-              right: 0%;
-              margin-right: 10%;
-              margin-top: 10%;
-             visibility: hidden;
-                  position: absolute"
-           >
-    
+      type="image"
+      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
+      id="closePromo"
+      style="
+        width: 10%;
+        right: 0%;
+        margin-right: 10%;
+        margin-top: 10%;
+        visibility: hidden;
+        position: absolute;
+      "
+    />
 
     <!-- Device Turning message-->
     <div class="turnDeviceNotification"></div>
-    <input type="number" id="myNumber" value="250" style="visibility: hidden; position: absolute; top: 0; left: 0;">
-    
+    <input
+      type="number"
+      id="myNumber"
+      value="250"
+      style="visibility: hidden; position: absolute; top: 0; left: 0"
+    />
   </body>
 </html>
