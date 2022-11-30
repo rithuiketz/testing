@@ -305,6 +305,7 @@ addEventListener("keyup", ({ key }) => {
 ////UI for Windows
 window.onload = function () {
   document.getElementById("startGameBtn").addEventListener("click", () => {
+    console.log("Start");
     if (replayflag == false) {
       replayflag = true;
       refreshIntervalId = setInterval(spawnProjectile, 1500);
