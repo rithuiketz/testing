@@ -53,8 +53,114 @@
   </div>
 
   <script src="./index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+  
+  <script type="text/javascript">
+    let video = null;
+    let CANVAS = null;
+    let CONTEXT = null;
+    let SCALER = 1;
+    let SIZE = { x: 0, y: 0, width: 0, height: 0 };
+    
+    var score = 0;
+        var scorePreroll = 0;
+        var highScore = 0;
+        var missed = 0;
+        var timer = 0.0;
+        var interval = 3000;
+        var replayflag = false;
+        var refreshIntervalId;
+        var rightWalk = "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775";
+    
+    
+    console.log("loaded");
+    async function main() {
+      //Opens Camera
 
-  <body id="GameBody">
+      console.log("mainReached");
+      CANVAS = document.getElementById("myCanvas");
+      CONTEXT = CANVAS.getContext("2d");
+      CANVAS.width = window.innerWidth;
+      CANVAS.height = window.innerHeight;
+      let promise = navigator.mediaDevices.getUserMedia({ video: true });
+      promise
+        .then(function (signal) {
+          video = document.createElement("video");
+          video.srcObject = signal;
+          video.play();
+
+          video.onloadeddata = function () {
+            let resizer =
+              SCALER *
+              Math.min(
+                window.innerWidth / video.videoWidth,
+                window.innerHeight / video.videoHeight
+              );
+            let aspectRatio = video.videoWidth / video.videoHeight; //used to stretch widtha nd keep height at max
+            console.log(aspectRatio);
+
+            SIZE.width = window.innerHeight * aspectRatio; //resizer*VIDEO.videoWidth;
+            SIZE.height = window.innerHeight; //resizer*VIDEO.videoHeight;
+            SIZE.x = window.innerWidth / 2 - SIZE.width / 2; //*aspectRatio;
+            SIZE.y = window.innerHeight / 2 - SIZE.height / 2;
+            updateCanvas();
+          };
+        })
+        .catch(function (err) {
+          alert("Camera error: " + err);
+        });
+
+      fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
+      renderPrediction();
+    }
+
+    //Update Camera
+    function updateCanvas() {
+      CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
+      window.requestAnimationFrame(updateCanvas);
+    }
+
+    var curFaces = [];
+    async function renderPrediction() {
+      // Call face Mesh on our video stream
+      const facepred = await fmesh.estimateFaces(video);
+
+      // If we find a face, export it to a global variable so we can access it elsewhere
+      if (facepred.length > 0) {
+        curFaces = facepred;
+      }
+      console.log(facepred.length);
+
+      for (face of curFaces) {
+        //drawFace(face);
+        controlChar(face);
+      }
+
+      // Call itself again
+      requestAnimationFrame(renderPrediction);
+    }
+
+    function controlChar(face) {
+      let mesh = face.scaledMesh;
+      let lipTop = mesh[117][0];
+      console.log(lipTop);
+      if (lipTop > 250) {
+        document.getElementById("test").style.visibility = "hidden";
+        document.getElementById("test").style.left =
+          document.getElementById("test").style.left + 2;
+      }
+      if (lipTop < 250) {
+        document.getElementById("test").style.visibility = "visible";
+      }
+      document.getElementById("myNumber").value = lipTop;
+    }
+    
+  </script>
+
+  <body id="GameBody" onload="main()">
+    <canvas id="myCanvas"></canvas>
     <div oncontextmenu="return false;">
       <input
         type="image"
@@ -233,5 +339,6 @@
 
     <!-- Device Turning message-->
     <div class="turnDeviceNotification"></div>
+    <input type="number" id="myNumber" value="250" style="visibility: hidden; position: absolute; top: 0; left: 0;">
   </body>
 </html>
