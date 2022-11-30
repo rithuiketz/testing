@@ -17,6 +17,9 @@ var rightWalk = "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/
 
 //const startGameButton = document.getElementById("startGameBtn")
 
+
+  console.log("Game Loaded");
+
 class Player {
   constructor() {
     this.velocity = {
@@ -346,6 +349,7 @@ if (
   )
 ) {
   window.onload = function () {
+    
     document
       .getElementById("startGameBtn")
       .addEventListener("touchstart", () => {
