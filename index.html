@@ -146,14 +146,6 @@
       let mesh = face.scaledMesh;
       let lipTop = mesh[117][0];
       console.log(lipTop);
-      if (lipTop > 250) {
-        document.getElementById("test").style.visibility = "hidden";
-        document.getElementById("test").style.left =
-          document.getElementById("test").style.left + 2;
-      }
-      if (lipTop < 250) {
-        document.getElementById("test").style.visibility = "visible";
-      }
       document.getElementById("myNumber").value = lipTop;
     }
     
