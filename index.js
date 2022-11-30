@@ -239,6 +239,8 @@ function scorePrerollGenerate(){
 }
 
 function animate() {
+  var lipTopFT = document.getElementById("myNumber").value;
+  console.log(lipTopFT);
   if (missed > 2) {
     console.log("Lost, stop animation");
     return;
@@ -359,6 +361,7 @@ if (
         missed = 0;
         missedCounter();
         animate();
+        
       });
     document.getElementById("left").addEventListener("touchstart", function () {
       keys.a.pressed = true;
