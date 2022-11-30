@@ -4,62 +4,8 @@
     <title>Eno Nacho Game!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
     <meta name="apple-mobile-app-capable" content="yes">  
-  </head>
-
-  <style>
-    body {
-      margin: 0;
-    }
-    h1 {
-      
-      font-family: Verdana;
-      color: darkblue;
-      font-size: 4vw;
-      margin: 5px;
-    }
-    h2 {
-      font-family: Verdana;
-      color: Navy;
-      font-size: 6vw;
-      font-style: italic;
-      margin: 5px;
-      width:100%;
-      text-align: center;
-    }
-    h3 {
-      -webkit-text-stroke: 2px white; /* width and color */
-
-      font-family: Verdana;
-      color: red;
-      font-size: 6vw;
-      font-style: italic;
-      margin: 5px;
-    }
-  </style>
-  <div>
-    <canvas id="myCanvas" style= "position:absolute; top:0px; left:0px;
-    width:100%;
-    height:100%;"></canvas>
-  </div>
-  
-  <div>
-    <canvas
-      style="
-        
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-      "
-      id="gameCanvas" 
-    >
-    </canvas>
-  </div>
-
-  <script src="./index.js"></script>
+    
+    <script src="./index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
   <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
@@ -157,6 +103,62 @@
     }
     
   </script>
+  </head>
+
+  <style>
+    body {
+      margin: 0;
+    }
+    h1 {
+      
+      font-family: Verdana;
+      color: darkblue;
+      font-size: 4vw;
+      margin: 5px;
+    }
+    h2 {
+      font-family: Verdana;
+      color: Navy;
+      font-size: 6vw;
+      font-style: italic;
+      margin: 5px;
+      width:100%;
+      text-align: center;
+    }
+    h3 {
+      -webkit-text-stroke: 2px white; /* width and color */
+
+      font-family: Verdana;
+      color: red;
+      font-size: 6vw;
+      font-style: italic;
+      margin: 5px;
+    }
+  </style>
+  <div>
+    <canvas id="myCanvas" style= "position:absolute; top:0px; left:0px;
+    width:100%;
+    height:100%;"></canvas>
+  </div>
+  
+  <div>
+    <canvas
+      style="
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      "
+      id="gameCanvas" 
+    >
+    </canvas>
+  </div>
+
+  
 
   <body id="GameBody" onload="main()">
     <!--<body id="GameBody"> onload="main()">-->
