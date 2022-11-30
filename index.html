@@ -127,6 +127,7 @@
       CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
       window.requestAnimationFrame(updateCanvas);
     }
+    
 
     var curFaces = [];
     async function renderPrediction() {
@@ -157,7 +158,7 @@
     
   </script>
 
-  <body id="GameBody" onload="main()">
+  <body id="GameBody">
     <!--<body id="GameBody"> onload="main()">-->
     
     <div oncontextmenu="return false;">
@@ -339,6 +340,6 @@
     <!-- Device Turning message-->
     <div class="turnDeviceNotification"></div>
     <input type="number" id="myNumber" value="250" style="visibility: hidden; position: absolute; top: 0; left: 0;">
-    
+    onload="main()
   </body>
 </html>
