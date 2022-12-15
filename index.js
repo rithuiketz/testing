@@ -250,9 +250,10 @@ function animate() {
     return;
   }
   requestAnimationFrame(animate);
-  c.clearRect(0, 0, c.width, c.height)
+  //c.clearRect(0, 0, c.width, c.height);
   c.fillStyle = "rgba(0,0,0,0)";//"black";
   c.fillRect(0, 0, canvas.width, canvas.height); //Canvas background
+  c.clearRect(0,0,canvas.width, canvas.height);
   player.update();
 
   projectiles.forEach((Projectile, index) => {
