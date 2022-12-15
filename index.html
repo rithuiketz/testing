@@ -15,7 +15,7 @@
 
     <script type="text/javascript">
       let video = null;
-      //let VideoCANVAS = null;
+      let VideoCANVAS = null;
       let CONTEXT = null;
       let SCALER = 1;
       let SIZE = { x: 0, y: 0, width: 0, height: 0 };
@@ -67,12 +67,14 @@
 
         fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
         renderPrediction();
+        
       }
 
       //Update Camera
       function updateCanvas() {
         CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
         window.requestAnimationFrame(updateCanvas);
+        
       }
 
       var curFaces = [];
@@ -135,6 +137,7 @@
   </style>
 
   <body id="GameBody" onload="main()">
+    
     <!--<body id="GameBody"> onload="main()">-->
     <div>
       <canvas
@@ -310,6 +313,7 @@
       value="250"
       style="visibility: hidden; position: absolute; top: 0; left: 0"
     />
+    
   </body>
   <script src="./index.js"></script>
 </html>
