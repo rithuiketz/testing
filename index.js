@@ -250,7 +250,7 @@ function animate() {
     return;
   }
   requestAnimationFrame(animate);
-  c.fillStyle = "black";
+  //c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height); //Canvas background
   player.update();
 
