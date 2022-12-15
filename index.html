@@ -15,7 +15,7 @@
 
     <script type="text/javascript">
       let video = null;
-      let CANVAS = null;
+      let VideoCANVAS = null;
       let CONTEXT = null;
       let SCALER = 1;
       let SIZE = { x: 0, y: 0, width: 0, height: 0 };
@@ -34,10 +34,10 @@
         //Opens Camera
 
         console.log("mainReached");
-        CANVAS = document.getElementById("myCanvas");
-        CONTEXT = CANVAS.getContext("2d");
-        CANVAS.width = window.innerWidth;
-        CANVAS.height = window.innerHeight;
+        VideoCANVAS = document.getElementById("VideoCanvas");
+        CONTEXT = VideoCANVAS.getContext("2d");
+        VideoCANVAS.width = window.innerWidth;
+        VideoCANVAS.height = window.innerHeight;
         let promise = navigator.mediaDevices.getUserMedia({ video: true });
         promise
           .then(function (signal) {
@@ -138,7 +138,7 @@
     <!--<body id="GameBody"> onload="main()">-->
     <div>
       <canvas
-        id="myCanvas"
+        id="VideoCanvas"
         style="
           position: absolute;
           top: 0px;
