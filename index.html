@@ -74,6 +74,7 @@
       function updateCanvas() {
         CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
         window.requestAnimationFrame(updateCanvas);
+        console.log("video canvas updating");
         
       }
 
@@ -81,6 +82,7 @@
       async function renderPrediction() {
         // Call face Mesh on our video stream
         const facepred = await fmesh.estimateFaces(video);
+        console.log("predictionmade");
 
         // If we find a face, export it to a global variable so we can access it elsewhere
         if (facepred.length > 0) {
