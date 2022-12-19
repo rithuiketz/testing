@@ -14,6 +14,7 @@ var interval = 3000;
 var replayflag = false;
 var refreshIntervalId; 
 var rightWalk = "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Walk_right_small.gif?v=1666118730775";
+var lipTopFT;
 
 //const startGameButton = document.getElementById("startGameBtn")
 
@@ -245,6 +246,18 @@ function scorePrerollGenerate(){
 function animate() {
   var lipTopFT = document.getElementById("myNumber").value;
   console.log(lipTopFT);
+  if (lipTopFT < 200){
+    keys.a.pressed = true;
+    keys.d.pressed = false;
+  }
+  if (lipTopFT > 300){
+    keys.a.pressed = false;
+    keys.d.pressed = true;
+  }
+  if (lipTopFT > 200 && lipTopFT < 300){
+    keys.a.pressed = false;
+    keys.d.pressed = false;
+  }
   if (missed > 2) {
     console.log("Lost, stop animation");
     return;
@@ -304,6 +317,9 @@ addEventListener("keyup", ({ key }) => {
   }
 });
 
+
+
+
 ////UI for Windows
 window.onload = function () {
   document.getElementById("startGameBtn").addEventListener("click", () => {
@@ -338,6 +354,10 @@ window.onload = function () {
     keys.a.pressed = false;
     keys.d.pressed = false;
   });
+  
+  
+  
+  
   document.getElementById("closePromo").addEventListener("mousedown", function () {
     
       document.getElementById("promo").style.visibility = "hidden";
