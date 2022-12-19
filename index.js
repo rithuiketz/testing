@@ -243,21 +243,10 @@ function scorePrerollGenerate(){
   }
 }
 
-function animate() {
+function animate(Player) {
   var lipTopFT = document.getElementById("myNumber").value;
   console.log(lipTopFT);
-  if (lipTopFT < 200){
-    keys.a.pressed = false;
-    keys.d.pressed = true;
-  }
-  if (lipTopFT > 300){
-    keys.a.pressed = true;
-    keys.d.pressed = false;
-  }
-  if (lipTopFT > 200 && lipTopFT < 300){
-    keys.a.pressed = false;
-    keys.d.pressed = false;
-  }
+  
   if (missed > 2) {
     console.log("Lost, stop animation");
     return;
@@ -275,6 +264,20 @@ function animate() {
     //Detectcollision
     detectCollision(Projectile, player, index);
   });
+  console.log(lipTopFT,player.position.x)
+  
+  if (lipTopFT < player.position.x){
+    keys.a.pressed = false;
+    keys.d.pressed = true;
+  }
+  if (lipTopFT > player.position.x){
+    keys.a.pressed = true;
+    keys.d.pressed = false;
+  }
+  if (lipTopFT > player.position.x && lipTopFT < player.position.x){
+    keys.a.pressed = false;
+    keys.d.pressed = false;
+  }
 
   if (keys.a.pressed && player.position.x >= canvas.width * 0.14) {
     player.velocity.x = -5;
@@ -288,6 +291,8 @@ function animate() {
   } else {
     player.velocity.x = 0;
   }
+  
+  
 }
 
 //// Event Listeners for UI////
