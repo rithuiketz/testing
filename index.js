@@ -247,12 +247,12 @@ function animate() {
   var lipTopFT = document.getElementById("myNumber").value;
   console.log(lipTopFT);
   if (lipTopFT < 200){
-    keys.a.pressed = true;
-    keys.d.pressed = false;
-  }
-  if (lipTopFT > 300){
     keys.a.pressed = false;
     keys.d.pressed = true;
+  }
+  if (lipTopFT > 300){
+    keys.a.pressed = true;
+    keys.d.pressed = false;
   }
   if (lipTopFT > 200 && lipTopFT < 300){
     keys.a.pressed = false;
