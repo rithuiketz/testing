@@ -264,14 +264,18 @@ function animate(Player) {
     //Detectcollision
     detectCollision(Projectile, player, index);
   });
-  console.log(lipTopFT,player.position.x, window.innerWidth)
-  var amendedPlayerPosition = 375-player.position.x;
+  console.log(lipTopFT, player.position.x, window.innerWidth)
+  var amendedPlayerPosition = window.innerWidth-player.position.x;
   if (lipTopFT < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
-  if (lipTopFT > amendedPlayerPosition){
+  if (lipTopFT > amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = true;
+    keys.d.pressed = false;
+  }
+  if (Math.abs(amendedPlayerPosition-lipTopFT) < 10){
+    keys.a.pressed = false;
     keys.d.pressed = false;
   }
   if (lipTopFT > amendedPlayerPosition && lipTopFT < amendedPlayerPosition){
