@@ -157,7 +157,7 @@ function detectCollision(Projectile, Player, index) {
     if (score > highScore) {
       highScore = score;
     }
-    console.log("score = " + score);
+    //console.log("score = " + score);
     //document.getElementById("score").innerHTML = "SCORE " + score;
     scorePrerollGenerate();
     document.getElementById("score").innerHTML = "" + scorePreroll + score;
@@ -169,7 +169,7 @@ function detectCollision(Projectile, Player, index) {
   if (Projectile.position.y > canvas.height-100) {
     projectiles.splice(projectiles[index], 1);
     missed = missed + 1;
-    console.log("Missed = " + missed);
+    //console.log("Missed = " + missed);
     //When the player loses
     
     missedCounter();
@@ -264,17 +264,17 @@ function animate(Player) {
     //Detectcollision
     detectCollision(Projectile, player, index);
   });
-  console.log(lipTopFT,player.position.x)
-  
-  if (lipTopFT < player.position.x){
+  console.log(lipTopFT,player.position.x, window.innerWidth)
+  var amendedPlayerPosition = 375-player.position.x;
+  if (lipTopFT < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
-  if (lipTopFT > player.position.x){
+  if (lipTopFT > amendedPlayerPosition){
     keys.a.pressed = true;
     keys.d.pressed = false;
   }
-  if (lipTopFT > player.position.x && lipTopFT < player.position.x){
+  if (lipTopFT > amendedPlayerPosition && lipTopFT < amendedPlayerPosition){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
