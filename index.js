@@ -385,7 +385,7 @@ if (
     document
       .getElementById("startGameBtn")
       .addEventListener("touchstart", () => {
-        document.getElementById("GameBody").requestFullscreen();
+        //document.getElementById("GameBody").requestFullscreen();
         document.getElementById("startGame").style.visibility = "hidden";
         if (replayflag == false) {
           replayflag = true;
