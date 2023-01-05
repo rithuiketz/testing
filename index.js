@@ -400,11 +400,11 @@ if (
         animate();
         
       });
-    document.getElementById("left").addEventListener("touchstart", function () {
+   /*document.getElementById("left").addEventListener("touchstart", function () {
       keys.a.pressed = true;
       keys.d.pressed = false;
     });
-    document
+     document
       .getElementById("right")
       .addEventListener("touchstart", function () {
         keys.a.pressed = false;
@@ -413,11 +413,11 @@ if (
     document.getElementById("left").addEventListener("touchend", function () {
       keys.a.pressed = false;
       keys.d.pressed = false;
-    });
+    })
     document.getElementById("right").addEventListener("touchend", function () {
       keys.a.pressed = false;
       keys.d.pressed = false;
-    });
+    });*/
     document.getElementById("closePromo").addEventListener("touchstart", function () {
     
       document.getElementById("promo").style.visibility = "hidden";
