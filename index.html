@@ -33,7 +33,6 @@
       var refreshIntervalId;
 
       console.log("loaded");
-      
       async function main() {
         //Opens Camera
 
@@ -68,12 +67,11 @@
           .catch(function (err) {
             alert("Camera error: " + err);
           });
-        
 
         fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
         renderPrediction();
+        
       }
-      
 
       //Update Camera
       function updateCanvas() {
