@@ -70,14 +70,18 @@ class Projectile {
     if (randomiser == 0){
       splat.src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Yellow-2.png?v=1665651897387"; //Transport this to ./imgfolder eventually
+      this.score = 1;
     }
     if (randomiser == 1){
       splat.src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Yellow.png?v=1665651897687"; //Transport this to ./imgfolder eventually
+      this.score = 1;
     }
     if (randomiser == 2){
       splat.src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Eno-Sachet.png?v=1665651897921"; //Transport this to ./imgfolder eventually
+      
+      this.score = 3;
     }
     
     splat.onload = () => {
@@ -153,7 +157,7 @@ function detectCollision(Projectile, Player, index) {
     audio.loop = false;
     audio.play();
     projectiles.splice(projectiles[index], 1);
-    score = score + 1;
+    score = score + Projectile.score;
     if (score > highScore) {
       highScore = score;
     }
@@ -283,12 +287,12 @@ function animate(Player) {
     keys.d.pressed = false;
   }
 
-  if (keys.a.pressed && player.position.x >= canvas.width * 0.14) {
+  if (keys.a.pressed && player.position.x >= canvas.width * 0) {
     player.velocity.x = -5;
     player.rotation = 0.15; //change image here
   } else if (
     keys.d.pressed &&
-    player.position.x + player.width <= canvas.width * 0.86
+    player.position.x + player.width <= canvas.width * 1
   ) {
     player.velocity.x = 5;
     player.rotation = 0.15;
