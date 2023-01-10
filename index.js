@@ -271,27 +271,27 @@ function animate(Player) {
   console.log(lipTopFT, player.position.x, window.innerWidth)
   var amendedLipTop = lipTopFT*(window.innerWidth/500);
   
-  var amendedPlayerPosition = player.position.x*(500/window.innerWidth);//window.innerWidth-player.position.x;
+  var amendedPlayerPosition = window.innerWidth-player.position.x;
   
   
-  if (lipTopFT < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
+  if (lipTopFT*(window.innerWidth/500) < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
-  if (lipTopFT > amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
+  if (lipTopFT*(window.innerWidth/500) > amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = true;
     keys.d.pressed = false;
   }
-  /*if (Math.abs(amendedPlayerPosition-lipTopFT) < 10){
+  if (Math.abs(amendedPlayerPosition-(lipTopFT*(window.innerWidth/500)) < 10){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
-  if (lipTopFT > amendedPlayerPosition && lipTopFT < amendedPlayerPosition){
+  if (lipTopFT*(window.innerWidth/500) > amendedPlayerPosition && lipTopFT*(window.innerWidth/500) < amendedPlayerPosition){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
   
-  if (lipTopFT < 250){
+  /*if (lipTopFT < 250){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
@@ -301,14 +301,12 @@ function animate(Player) {
   }*/
 
   if (keys.a.pressed && player.position.x >= canvas.width * 0) {
-    player.velocity.x = -5;
-    player.rotation = 0.15; //change image here
+    player.velocity.x = -10;
   } else if (
     keys.d.pressed &&
     player.position.x + player.width <= canvas.width * 1
   ) {
-    player.velocity.x = 5;
-    player.rotation = 0.15;
+    player.velocity.x = 10;
   } else {
     player.velocity.x = 0;
   }
