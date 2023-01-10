@@ -301,12 +301,12 @@ function animate(Player) {
   }*/
 
   if (keys.a.pressed && player.position.x >= canvas.width * 0) {
-    player.velocity.x = -10;
+    player.velocity.x = screen.width/30*-1;//-10;
   } else if (
     keys.d.pressed &&
     player.position.x + player.width <= canvas.width * 1
   ) {
-    player.velocity.x = 10;
+    player.velocity.x = screen.width/30;
   } else {
     player.velocity.x = 0;
   }

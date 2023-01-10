@@ -17,3 +17,22 @@ Open `script.js` to see the script that makes the button move.
 ## Keep going! 🚀
 
 Try adding more properties to the CSS `dipped` style for the button to see how the changes appear on click.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Left to do
+
+You need to convert the facetracking to to the screenwidth, there is a conversion to do. We need to get full width
+Get close button to work with iPad
+
