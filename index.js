@@ -274,15 +274,15 @@ function animate(Player) {
   var amendedPlayerPosition = window.innerWidth-player.position.x;
   
   
-  if (amendedLipTop < amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop) > 10){
+  if (amendedLipTop < amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop) >  screen.width/20){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
-  if (amendedLipTop > amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop) > 10){
+  if (amendedLipTop > amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop) >  screen.width/20){
     keys.a.pressed = true;
     keys.d.pressed = false;
   }
-  if (Math.abs(amendedPlayerPosition-lipTopFT) < 10){
+  if (Math.abs(amendedPlayerPosition-lipTopFT) <  screen.width/20){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
