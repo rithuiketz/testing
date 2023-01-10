@@ -269,23 +269,33 @@ function animate(Player) {
     detectCollision(Projectile, player, index);
   });
   console.log(lipTopFT, player.position.x, window.innerWidth)
+  var amendedLipTop  = lipTopFT*(window.innerwidth/500);
   var amendedPlayerPosition = window.innerWidth-player.position.x;
-  if (lipTopFT < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
+  if (amendedLipTop < amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop) > 10){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
-  if (lipTopFT > amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
+  if (amendedLipTop  > amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop ) > 10){
     keys.a.pressed = true;
     keys.d.pressed = false;
   }
-  if (Math.abs(amendedPlayerPosition-lipTopFT) < 10){
+  if (Math.abs(amendedPlayerPosition-amendedLipTop ) < 10){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
-  if (lipTopFT > amendedPlayerPosition && lipTopFT < amendedPlayerPosition){
+  if (amendedLipTop  > amendedPlayerPosition && amendedLipTop  < amendedPlayerPosition){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
+  
+  /*if (lipTopFT < 250){
+    keys.a.pressed = false;
+    keys.d.pressed = true;
+  }
+  if (lipTopFT > 250){
+    keys.a.pressed = true;
+    keys.d.pressed = false;
+  }*/
 
   if (keys.a.pressed && player.position.x >= canvas.width * 0) {
     player.velocity.x = -5;
