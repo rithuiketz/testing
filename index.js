@@ -269,26 +269,29 @@ function animate(Player) {
     detectCollision(Projectile, player, index);
   });
   console.log(lipTopFT, player.position.x, window.innerWidth)
-  var amendedLipTop  = lipTopFT*(window.innerwidth/500);
+  var amendedLipTop = lipTopFT*(window.innerWidth/500);
+  
   var amendedPlayerPosition = window.innerWidth-player.position.x;
-  if (amendedLipTop < amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop) > 10){
+  
+  
+  if (lipTopFT < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
-  if (amendedLipTop  > amendedPlayerPosition && Math.abs(amendedPlayerPosition-amendedLipTop ) > 10){
+  if (lipTopFT > amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
     keys.a.pressed = true;
     keys.d.pressed = false;
   }
-  if (Math.abs(amendedPlayerPosition-amendedLipTop ) < 10){
+  /*if (Math.abs(amendedPlayerPosition-lipTopFT) < 10){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
-  if (amendedLipTop  > amendedPlayerPosition && amendedLipTop  < amendedPlayerPosition){
+  if (lipTopFT > amendedPlayerPosition && lipTopFT < amendedPlayerPosition){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
   
-  /*if (lipTopFT < 250){
+  if (lipTopFT < 250){
     keys.a.pressed = false;
     keys.d.pressed = true;
   }
