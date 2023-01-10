@@ -271,7 +271,7 @@ function animate(Player) {
   console.log(lipTopFT, player.position.x, window.innerWidth)
   var amendedLipTop = lipTopFT*(window.innerWidth/500);
   
-  var amendedPlayerPosition = window.innerWidth-player.position.x;
+  var amendedPlayerPosition = player.position.x*(500/window.innerWidth);//window.innerWidth-player.position.x;
   
   
   if (lipTopFT < amendedPlayerPosition && Math.abs(amendedPlayerPosition-lipTopFT) > 10){
