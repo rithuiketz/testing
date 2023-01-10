@@ -138,7 +138,7 @@ function spawnProjectile() {
         ),
         y: 0,
       },
-      velocity: { x: 0, y: 2 + score / 5 },
+      velocity: { x: 0, y: 5 + score / 5 },
     })
   );
 }
