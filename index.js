@@ -269,7 +269,7 @@ function animate(Player) {
     detectCollision(Projectile, player, index);
   });
   console.log(lipTopFT, player.position.x, window.innerWidth)
-  var amendedLipTop = lipTopFT*((window.innerWidth/2500).toPrecision(3));
+  var amendedLipTop = lipTopFT*((window.innerWidth/250).toPrecision(3));
   
   var amendedPlayerPosition = window.innerWidth-player.position.x;
   
