@@ -436,7 +436,7 @@ if (
       keys.a.pressed = false;
       keys.d.pressed = false;
     });
-    document.getElementById("closePromo").addEventListener("touchstart", function () {
+    document.getElementById("closePromo").addEventListener("click", () => {
     
       document.getElementById("promo").style.visibility = "hidden";
       document.getElementById("closePromo").style.visibility = "hidden";
