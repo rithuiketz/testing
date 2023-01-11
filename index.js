@@ -269,7 +269,7 @@ function animate(Player) {
     detectCollision(Projectile, player, index);
   });
   console.log(lipTopFT, player.position.x, window.innerWidth)
-  var amendedLipTop = lipTopFT*((window.innerWidth/500).toPrecision(3));
+  var amendedLipTop = lipTopFT*((window.innerWidth/2500).toPrecision(3));
   
   var amendedPlayerPosition = window.innerWidth-player.position.x;
   
@@ -282,11 +282,11 @@ function animate(Player) {
     keys.a.pressed = true;
     keys.d.pressed = false;
   }
-  if (Math.abs(amendedPlayerPosition-lipTopFT) <  screen.width/20){
+  if (Math.abs(amendedPlayerPosition-amendedLipTop) <  screen.width/20){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
-  if (lipTopFT > amendedPlayerPosition && lipTopFT < amendedPlayerPosition){
+  if (amendedLipTop > amendedPlayerPosition && amendedLipTop < amendedPlayerPosition){
     keys.a.pressed = false;
     keys.d.pressed = false;
   }
