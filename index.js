@@ -317,6 +317,7 @@ function animate(Player) {
 function closeIntro(){
         document.getElementById("closeIntro").style.visibility = "hidden";
         document.getElementById("intro").style.visibility = "hidden";
+        document.getElementById("startGame").style.visibility = "visible";
       }
 
 
@@ -472,6 +473,7 @@ function ClosePromo() {
     
         document.getElementById("promo").style.visibility = "hidden";
       document.getElementById("closePromo").style.visibility = "hidden";
+  
   };
 
 
