@@ -2,15 +2,14 @@
 <html lang="en">
   <head>
     <title>Eno Nacho Game!</title>
-    
-    <meta name="apple-mobile-app-capable" content="yes">  
-    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimal-ui , user-scalable=no"
     />
 
-    
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>-->
     <script src="./facemesh.js"></script>
@@ -71,7 +70,6 @@
 
         fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
         renderPrediction();
-        
       }
 
       //Update Camera
@@ -79,7 +77,6 @@
         CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
         window.requestAnimationFrame(updateCanvas);
         //console.log("video canvas updating");
-        
       }
 
       var curFaces = [];
@@ -109,7 +106,6 @@
         //console.log(lipTop);
         document.getElementById("myNumber").value = lipTop;
       }
-      
     </script>
   </head>
 
@@ -144,7 +140,6 @@
   </style>
 
   <body id="GameBody" onload="main()">
-    
     <!--<body id="GameBody"> onload="main()">-->
     <div>
       <canvas
@@ -155,15 +150,15 @@
           left: 0px;
           width: 100%;
           height: 100%;
-               -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
         "
       ></canvas>
     </div>
 
     <div>
       <canvas
-              id="gameCanvas"
+        id="gameCanvas"
         style="
           display: block;
           position: absolute;
@@ -174,7 +169,6 @@
           width: 100%;
           height: 100%;
         "
-        
       >
       </canvas>
     </div>
@@ -297,7 +291,7 @@
       <img
         src="https://cdn.glitch.global/9970ee67-e17e-488f-bed4-5e9196ed83ec/Eno%20Promo%20Final.png?v=1671544101699"
         alt="promo"
-        style="height: 100vh; width: 100vw; position: absolute; "
+        style="height: 100vh; width: 100vw; position: absolute"
       />
     </div>
     <input
@@ -313,17 +307,14 @@
         position: fixed;
       "
     />
-    
+
     <div id="intro" style="visibility: visible">
       <img
         src="https://cdn.glitch.global/9970ee67-e17e-488f-bed4-5e9196ed83ec/Eno%20Message.png?v=1674040803868"
         alt="intro"
-        style="margin: auto;
-  width: 70%; padding:15%;
-  "
+        style="margin: auto; width: 80%; padding: 10%; padding-top: 30%; position: fixed;"
       />
     </div>
-    
 
     <!-- Device Turning message-->
     <div class="turnDeviceNotification"></div>
@@ -333,16 +324,15 @@
       value="250"
       style="visibility: hidden; position: absolute; top: 0; left: 0"
     />
-    
+
     <script>
-    function test() {
-      alert("The function is executed");
-    }
-    window.addEventListener('load', event => {
-      main();
-    });
-  </script>
-    
+      function test() {
+        alert("The function is executed");
+      }
+      window.addEventListener("load", (event) => {
+        main();
+      });
+    </script>
   </body>
   <script src="./index.js"></script>
 </html>
