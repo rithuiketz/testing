@@ -314,6 +314,11 @@ function animate(Player) {
   
 }
 
+function closeIntro(){
+        document.getElementById("closeIntro").style.visibility = "hidden";
+        document.getElementById("intro").style.visibility = "hidden";
+      }
+
 
 
 //// Event Listeners for UI////
@@ -445,5 +450,31 @@ if (
 
   screen.orientation.lock("portrait");
 }
+
+////UI for Phone
+function mobileStart() {
+    
+        document.getElementById("GameBody").requestFullscreen();
+        document.getElementById("startGame").style.visibility = "hidden";
+        if (replayflag == false) {
+          replayflag = true;
+          refreshIntervalId = setInterval(spawnProjectile, 1500);
+        } else {
+        }
+        score = 0;
+        scorePrerollGenerate();
+        document.getElementById("score").innerHTML = scorePreroll + score;
+        missed = 0;
+        missedCounter();
+        animate();
+        
+    document.getElementById("closePromo").addEventListener("click", () => {
+    
+      document.getElementById("promo").style.visibility = "hidden";
+      document.getElementById("closePromo").style.visibility = "hidden";
+  });
+  };
+
+
 
 
