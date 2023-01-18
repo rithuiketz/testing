@@ -70,12 +70,12 @@ class Projectile {
     if (randomiser == 0){
       splat.src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Yellow-2.png?v=1665651897387"; //Transport this to ./imgfolder eventually
-      this.score = 1;
+      this.score = 2;
     }
     if (randomiser == 1){
       splat.src =
       "https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Yellow.png?v=1665651897687"; //Transport this to ./imgfolder eventually
-      this.score = 1;
+      this.score = 2;
     }
     if (randomiser == 2){
       splat.src =
