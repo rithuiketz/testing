@@ -315,6 +315,14 @@
         style="margin: auto; width: 80%; padding: 10%; padding-top: 30%; position: fixed;"
       />
     </div>
+    <input
+      type="image"
+      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/play.png?v=1666109745364"
+      id="closeIntro"
+      onclick="closeIntro()"
+      style="
+        margin: auto; width: 10%; padding: 45%; padding-top: 80%; position: fixed;
+      "/>
 
     <!-- Device Turning message-->
     <div class="turnDeviceNotification"></div>
@@ -332,6 +340,11 @@
       window.addEventListener("load", (event) => {
         main();
       });
+      
+      function closeIntro(){
+        document.getElementById("closeIntro").style.visibility = "hidden";
+        document.getElementById("intro").style.visibility = "hidden";
+      }
     </script>
   </body>
   <script src="./index.js"></script>
