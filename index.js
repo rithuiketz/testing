@@ -408,7 +408,7 @@ if (
     document
       .getElementById("startGameBtn")
       .addEventListener("touchstart", () => {
-        document.getElementById("GameBody").requestFullscreen();
+        //document.getElementById("GameBody").requestFullscreen();
         document.getElementById("startGame").style.visibility = "hidden";
         if (replayflag == false) {
           replayflag = true;
@@ -441,11 +441,11 @@ if (
       keys.a.pressed = false;
       keys.d.pressed = false;
     });
-    document.getElementById("closePromo").addEventListener("click", () => {
+    /*document.getElementById("closePromo").addEventListener("click", () => {
     
       document.getElementById("promo").style.visibility = "hidden";
       document.getElementById("closePromo").style.visibility = "hidden";
-  });
+  });*/
   };
 
   screen.orientation.lock("portrait");
@@ -454,7 +454,6 @@ if (
 ////UI for Phone
 function mobileStart() {
     
-        document.getElementById("GameBody").requestFullscreen();
         document.getElementById("startGame").style.visibility = "hidden";
         if (replayflag == false) {
           replayflag = true;
@@ -467,14 +466,12 @@ function mobileStart() {
         missed = 0;
         missedCounter();
         animate();
-        
-    document.getElementById("closePromo").addEventListener("click", () => {
-    
-      document.getElementById("promo").style.visibility = "hidden";
-      document.getElementById("closePromo").style.visibility = "hidden";
-  });
   };
 
-
+function ClosePromo() {
+    
+        document.getElementById("promo").style.visibility = "hidden";
+      document.getElementById("closePromo").style.visibility = "hidden";
+  };
 
 
