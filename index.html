@@ -68,7 +68,7 @@
             alert("Camera error: " + err);
           });
 
-        fmesh = await facemesh.load({ detectionConfidence: 0.9, maxFaces: 3 });
+        fmesh = await facemesh.load({ detectionConfidence: 0.7, maxFaces: 1 });
         renderPrediction();
       }
 
@@ -222,6 +222,7 @@
           id="startGameBtn"
           style="width: 20%; right: 22%; margin-left: 40%; margin-top: 2%;"
                onclick = "mobileStart()"
+               
         />
 
         <!--<button
