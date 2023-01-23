@@ -94,8 +94,8 @@
         if (facepred.length > 0) {
           curFaces = facepred;
           document.getElementById("tracking").innerHTML  =facepred.length ;
-          
         }
+        
         //console.log(facepred.length);
 
         for (face of curFaces) {
@@ -355,6 +355,7 @@
         alert("The function is executed");
       }*/
       window.addEventListener("load", (event) => {
+        Cache.delete();
         main();
       });
       
