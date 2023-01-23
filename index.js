@@ -424,7 +424,7 @@ if (
         animate();
         
       });
-   document.getElementById("left").addEventListener("touchstart", function () {
+   /*document.getElementById("left").addEventListener("touchstart", function () {
       keys.a.pressed = true;
       keys.d.pressed = false;
     });
@@ -441,7 +441,7 @@ if (
     document.getElementById("right").addEventListener("touchend", function () {
       keys.a.pressed = false;
       keys.d.pressed = false;
-    });
+    });*/
     /*document.getElementById("closePromo").addEventListener("click", () => {
     
       document.getElementById("promo").style.visibility = "hidden";
@@ -449,7 +449,7 @@ if (
   });*/
   };
 
-  screen.orientation.lock("portrait");
+  //screen.orientation.lock("portrait");
 }
 
 ////UI for Phone
