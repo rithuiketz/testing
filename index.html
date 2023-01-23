@@ -38,7 +38,7 @@
       console.log("loaded");
       async function main() {
         //Opens Camera
-
+        
         console.log("mainReached");
         VideoCANVAS = document.getElementById("VideoCanvas");
         CONTEXT = VideoCANVAS.getContext("2d");
@@ -75,6 +75,7 @@
         fmesh = await facemesh.load({ detectionConfidence: 0.7, maxFaces: 2 });
         
         renderPrediction();
+        
       }
 
       //Update Camera
