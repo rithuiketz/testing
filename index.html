@@ -73,6 +73,7 @@
           });
 
         fmesh = await facemesh.load({ detectionConfidence: 0.7, maxFaces: 2 });
+        document.getElementById("tracking2").style.visibility = visible;
         
         renderPrediction();
       }
@@ -80,6 +81,7 @@
       //Update Camera
       function updateCanvas() {
         CONTEXT.drawImage(video, SIZE.x, SIZE.y, SIZE.width, SIZE.height);
+        
         window.requestAnimationFrame(updateCanvas);
         //console.log("video canvas updating");
       }
@@ -93,7 +95,7 @@
         // If we find a face, export it to a global variable so we can access it elsewhere
         if (facepred.length > 0) {
           curFaces = facepred;
-          document.getElementById("tracking").innerHTML  = facepred.length ;
+          document.getElementById("tracking").innerHTML  = facepred.length;
         }
         
         //console.log(facepred.length);
@@ -321,8 +323,22 @@
     <h2
       id="tracking"
         value=""
-        style="position: absolute; bottom: 25%; text-align: center"
+        style="position: absolute; bottom: 25%; text-align: center; visibility: hidden;"
       >0</h2>
+    
+    <input
+      type="image"
+      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
+      id="tracking2"
+      style="
+        width: 10%;
+        right: 0%;
+        margin-right: 10%;
+        margin-top: 10%;
+        visibility: hidden;
+        position: fixed;
+      "
+    />
 
     <div id="intro" style="visibility: visible">
       <img
