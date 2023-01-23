@@ -72,10 +72,7 @@
             alert("Camera error: " + err);
           });
         
-        
-
         fmesh = await facemesh.load({ detectionConfidence: 0.7, maxFaces: 2 });
-        
         
         renderPrediction();
       }
