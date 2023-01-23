@@ -71,9 +71,11 @@
           .catch(function (err) {
             alert("Camera error: " + err);
           });
+        
+        
 
         fmesh = await facemesh.load({ detectionConfidence: 0.7, maxFaces: 2 });
-        document.getElementById("tracking2").style.visibility = visible;
+        
         
         renderPrediction();
       }
