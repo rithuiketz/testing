@@ -47,6 +47,7 @@
         let promise = navigator.mediaDevices.getUserMedia({ video: true });
         promise
           .then(function (signal) {
+          
             video = document.createElement("video");
             video.srcObject = signal;
             video.play();
@@ -72,6 +73,7 @@
           });
 
         fmesh = await facemesh.load({ detectionConfidence: 0.7, maxFaces: 1 });
+        document.getElementById("tracking").style.visibility = "visible";<!--remove when debug complete-->
         renderPrediction();
       }
 
@@ -91,6 +93,7 @@
         // If we find a face, export it to a global variable so we can access it elsewhere
         if (facepred.length > 0) {
           curFaces = facepred;
+          
         }
         //console.log(facepred.length);
 
@@ -304,6 +307,19 @@
       src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
       id="closePromo"
       onclick = "ClosePromo()"
+      style="
+        width: 10%;
+        right: 0%;
+        margin-right: 10%;
+        margin-top: 10%;
+        visibility: hidden;
+        position: fixed;
+      "
+    />
+    <input
+      type="image"
+      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
+      id="tracking"
       style="
         width: 10%;
         right: 0%;
