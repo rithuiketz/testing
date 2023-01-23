@@ -89,14 +89,16 @@
       var curFaces = [];
       async function renderPrediction() {
         // Call face Mesh on our video stream
-        const facepred = await fmesh.estimateFaces(video);
+        const facepred = await fmesh.estimateFaces(video);////////////////IT GETS STUCK HERE!!!!!!!!!
+        //document.getElementById("tracking2").style.visibility  = "visible";
+        
         //console.log("predictionmade");
 
         // If we find a face, export it to a global variable so we can access it elsewhere
         if (facepred.length > 0) {
           curFaces = facepred;
           document.getElementById("tracking").innerHTML  = facepred.length;
-          document.getElementById("tracking").styel.visibility  = "facepred.length";
+          
         }
         
         
@@ -112,6 +114,7 @@
       }
 
       function controlChar(face) {
+        
         let mesh = face.scaledMesh;
         let lipTop = mesh[117][0];
         //console.log(lipTop);
@@ -337,7 +340,7 @@
         right: 0%;
         margin-right: 10%;
         margin-top: 10%;
-        visibility: visible;
+        visibility: hidden;
         position: fixed;
       "
     />
