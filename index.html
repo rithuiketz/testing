@@ -97,12 +97,10 @@
         // If we find a face, export it to a global variable so we can access it elsewhere
         if (facepred.length > 0) {
           curFaces = facepred;
-          document.getElementById("tracking").innerHTML  = facepred.length;
           
         }
         
         
-        //console.log(facepred.length);
 
         for (face of curFaces) {
           //drawFace(face);
@@ -119,7 +117,6 @@
         let lipTop = mesh[117][0];
         //console.log(lipTop);
         document.getElementById("myNumber").value = lipTop;
-        //document.getElementById("tracking").innerHTML  = lipTop;<!--remove when debug complete-->
       }
     </script>
   </head>
@@ -239,21 +236,6 @@
                onclick = "mobileStart()"
                
         />
-
-        <!--<button
-          id="startGameBtn"
-          style="
-            background-color: #ffffff;
-            border: none;
-            color: black;
-            padding: 15px 32px;
-            text-align: center;
-            display: inline-block;
-            font-size: 8vw;
-          "
-        >
-          Start Game
-        </button>-->
       </div>
     </div>
 
@@ -325,25 +307,7 @@
         position: fixed;
       "
     />
-    <h2
-      id="tracking"
-        value=""
-        style="position: absolute; bottom: 25%; text-align: center; visibility: hidden;"
-      >0</h2>
     
-    <input
-      type="image"
-      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
-      id="tracking2"
-      style="
-        width: 10%;
-        right: 0%;
-        margin-right: 10%;
-        margin-top: 10%;
-        visibility: hidden;
-        position: fixed;
-      "
-    />
 
     <div id="intro" style="visibility: visible">
       <img
