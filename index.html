@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MGQXGRX');</script>
+<!-- End Google Tag Manager -->
+
+<!--Additionally, paste this code immediately after the opening <body> tag:-->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGQXGRX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
     <title>Eno Nacho Game!</title>
 
     <meta name="apple-mobile-app-capable" content="yes" />
@@ -12,7 +28,8 @@
     
     
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js.map"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
     <!--<script src="/facemesh.js"></script>
     <script src="/tfjs.js"></script>
@@ -187,7 +204,7 @@
     <!--<div oncontextmenu="return false;">
       <input
         type="image"
-        src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Left.png?v=1661168932510"
+        src="./images/Left.png"
         style="height: 30%; width: 7%; position: absolute; left: 7%; top: 60%"
         id="left"
       />
@@ -195,7 +212,7 @@
     <div oncontextmenu="return false;">
       <input
         type="image"
-        src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Right.png?v=1661164677708"
+        src="./images/Right.png"
         style="height: 30%; width: 7%; position: absolute; left: 86%; top: 60%"
         id="right"
       />
@@ -230,7 +247,7 @@
 
         <input
           type="image"
-          src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/play.png?v=1666109745364"
+          src="./images/play.png"
           id="startGameBtn"
           style="width: 20%; right: 22%; margin-left: 40%; margin-top: 2%;"
                onclick = "mobileStart()"
@@ -243,7 +260,7 @@
 
     <div>
       <img
-        src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Points-Image.png?v=1666018078457"
+        src="./images/Points-Image.png"
         alt="ScoreBox"
         style="
           width: 30%;
@@ -263,7 +280,7 @@
 
     <div>
       <img
-        src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308"
+        src="./images/Nacho.png"
         alt="Score 1"
         style="height: 7%; position: absolute; right: 32%; top: 5%"
         id="Missed1"
@@ -271,7 +288,7 @@
     </div>
     <div>
       <img
-        src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308"
+        src="./images/Nacho.png"
         alt="Score 2"
         style="height: 7%; position: absolute; right: 18%; top: 5%"
         id="Missed2"
@@ -279,7 +296,7 @@
     </div>
     <div>
       <img
-        src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/Nacho.png?v=1662562755308"
+        src="./images/Nacho.png"
         alt="Score 3"
         style="height: 7%; position: absolute; right: 4%; top: 5%"
         id="Missed3"
@@ -288,14 +305,14 @@
 
     <div id="promo" style="visibility: hidden">
       <img
-        src="https://cdn.glitch.global/9970ee67-e17e-488f-bed4-5e9196ed83ec/Eno%20Promo%20Final.png?v=1671544101699"
+        src="./images/EnoPromoFinal.png"
         alt="promo"
         style="height: 90%; width: 70%; padding-top: 5%; padding-left: 15%;  position: absolute;"
       />
     </div>
     <input
       type="image"
-      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/cross.png?v=1666604369069"
+      src="./images/cross.png"
       id="closePromo"
       onclick = "ClosePromo()"
       style="
@@ -311,13 +328,13 @@
 
     <div id="intro" style="visibility: visible">
       <img
-        src="https://cdn.glitch.global/9970ee67-e17e-488f-bed4-5e9196ed83ec/Eno%20Message.png?v=1674040803868"
+        src="./images/EnoMessage.png"
         alt="intro"
         style="margin: auto; width: 80%; padding: 10%; padding-top: 10%; position: fixed;"
       />
       <input
       type="image"
-      src="https://cdn.glitch.global/60d94363-1073-4daf-aa5b-1d90c575d322/play.png?v=1666109745364"
+      src="./images/play.png"
       id="closeIntro"
       onclick="closeIntro()"
       style="
